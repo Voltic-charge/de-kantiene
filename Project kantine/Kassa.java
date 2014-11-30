@@ -7,13 +7,17 @@
  */
 public class Kassa {
     private Persoon persoon;
+    private double totaalPrijs;
+    private int aantalArtikelen;
+    private int totaalGepasseerd;
+    private Dienblad blad;
     
      /**
       * Constructor
       */
      public Kassa(KassaRij kassarij) {
-        persoon = kassarij.eerstePersoonInRij();
-        jaljdfaljflaj
+        //persoon = kassarij.eerstePersoonInRij();
+       totaalGepasseerd = 0;
          
      }
      /**
@@ -23,7 +27,10 @@ public class Kassa {
       * @param persoon die moet afrekenen
       */
      public void rekenAf(Persoon persoon) {
-     //method body omitted
+         //method body omitted
+         blad = persoon.getDienblad();
+         aantalArtikelen = blad.getAantalArtikelen();
+         totaalPrijs = blad.getTotaalPrijs();             
      }
      
      /**
@@ -34,8 +41,9 @@ public class Kassa {
       * @return aantal artikelen
       */
      public int aantalArtikelen() {
-     //method body omitted
-     return persoon;
+         //method body omitted
+         return aantalArtikelen;
+     
      }
      
      /**
@@ -46,7 +54,8 @@ public class Kassa {
       * @return hoeveelheid geld in de kassa
       */
      public double hoeveelheidGeldInKassa() {
-     //method body omitted
+         //method body omitted
+         return totaalPrijs;
      }
      
      /**
@@ -55,5 +64,8 @@ public class Kassa {
       */
      public void resetKassa() {
      //method body omitted
-     }
+     aantalArtikelen = 0;
+     totaalPrijs = 0;
     }
+}
+ 

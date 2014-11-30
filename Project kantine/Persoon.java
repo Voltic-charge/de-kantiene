@@ -15,7 +15,7 @@ public class Persoon
     private int maand;
     private int jaar;
     private char geslacht;
-    private String dienblad;
+    private Dienblad dienblad;
     private ArrayList<Artikel> artikelen;
 
     /**
@@ -257,20 +257,14 @@ public class Persoon
     * @param dienblad
     */
     public void pakDienblad(Dienblad dienblad) {
-        if(dienblad == null){
-           dienblad = new Dienblad();
-       } 
+        this.dienblad = dienblad; 
     }
     /**
     * Methode om artikel te pakken en te plaatsen op het dienblad
     * @param artikel
     */
     public void pakArtikel(Artikel artikel) {
-     if(dienblad == null){
-        
-       } else {
-           artikelen.add(artikel);
-       } 
+        dienblad.voegToe(artikel);
     }
     /**
     * Methode om de totaalprijs van de artikelen
@@ -278,22 +272,23 @@ public class Persoon
     * @return De totaalprijs
     */
     public double getTotaalPrijs() {
-        double totaal = 0;
-        if(artikelen.size() > 0){
-           for (Artikel artikel : artikelen){
-            totaal += artikel.getArtikelPrijs();
-         }
-     
-        }
-        return totaal;
+        return dienblad.getTotaalPrijs();      
     }
+    
+    /**
+     * methode die er voor zorgt dat je dit dienblad(van dit specifiek persoon) kan terughalen in andere klassen.
+     */
+    public Dienblad getDienblad(){
+        return dienblad;
+    }
+
     /**
     * Methode om het aantal artikelen op dienblad dat bij de
     * persoon hoort te tellen
     * @return Het aantal artikelen
     */
     public int getAantalArtikelen() {
-      return artikelen.size();
+      return dienblad.getAantalArtikelen();
     }
 }
  
