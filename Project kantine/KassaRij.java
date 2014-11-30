@@ -10,7 +10,7 @@ public class KassaRij
     // instance variables - replace the example below with your own
     private int x;
     private ArrayList<Artikel> persoon;
-
+    private ArrayList<Persoon> personen;
 
     /**
      * Constructor for objects of class KassaRij
@@ -19,13 +19,15 @@ public class KassaRij
     {
         // initialise instance variables
         x = 0;
+        personen = new ArrayList<Persoon>();
     }
     /**
      * persoon sluit achter in de rij aan
      * @param persoon
      */
-    public void sluitAchteraan(Persoon persoon) {
-        //methode body omitted
+    public void sluitAchteraan(Persoon persoon) 
+    {
+        personen.add(persoon);        
     }
     /**
      * indien er een rij bestaat, de eerste persoon uit
