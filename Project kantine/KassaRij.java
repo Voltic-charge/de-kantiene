@@ -8,9 +8,8 @@ import java.util.ArrayList;
 public class KassaRij
 {
     // instance variables - replace the example below with your own
-    private int x;
-    private ArrayList<Artikel> persoon;
     private ArrayList<Persoon> personen;
+    private boolean rij;
 
     /**
      * Constructor for objects of class KassaRij
@@ -18,7 +17,6 @@ public class KassaRij
     public KassaRij()
     {
         // initialise instance variables
-        x = 0;
         personen = new ArrayList<Persoon>();
     }
     /**
@@ -44,6 +42,11 @@ public class KassaRij
      */
     public boolean erIsEenRij() {
         //method body omitted
-        return true;
+        if(personen.size() > 0)
+        {
+            rij = true;
+        }
+        
+        return rij;
     }
 }
