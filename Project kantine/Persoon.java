@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Persoon here.
  * 
@@ -16,6 +16,7 @@ public class Persoon
     private int jaar;
     private char geslacht;
     private String dienblad;
+    private ArrayList<Artikel> artikelen;
 
     /**
      * Constructor for objects of class Persoon
@@ -265,7 +266,11 @@ public class Persoon
     * @param artikel
     */
     public void pakArtikel(Artikel artikel) {
-     //method body omitted
+     if(dienblad == null){
+        
+       } else {
+           artikelen.add(artikel);
+       } 
     }
     /**
     * Methode om de totaalprijs van de artikelen
@@ -273,7 +278,14 @@ public class Persoon
     * @return De totaalprijs
     */
     public double getTotaalPrijs() {
-       return 0;
+        double totaal = 0;
+        if(artikelen.size() > 0){
+           for (Artikel artikel : artikelen){
+            totaal += artikel.getArtikelPrijs();
+         }
+     
+        }
+        return totaal;
     }
     /**
     * Methode om het aantal artikelen op dienblad dat bij de
@@ -281,7 +293,7 @@ public class Persoon
     * @return Het aantal artikelen
     */
     public int getAantalArtikelen() {
-       return 0;
+      return artikelen.size();
     }
 }
  

@@ -26,7 +26,7 @@ public class Dienblad {
  * @return Het aantal artikelen 
  */
  public int getAantalArtikelen() {
- return artikelen.size();
+   return artikelen.size();
  }
  /**
  * Methode om de totaalprijs van de artikelen 
