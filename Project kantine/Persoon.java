@@ -40,7 +40,7 @@ public class Persoon
         this.dag = 0;
         this.maand = 0;
         this.jaar = 0;
-        this.geslacht = 'k';
+        this.geslacht = 'm';
     }
         
 

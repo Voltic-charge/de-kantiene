@@ -38,6 +38,8 @@ public class KassaRij
         if(erIsEenRij() == true){
            eerstePersoonInRij = personen.get(0);
            
+        }else{
+            System.out.println("De rij is leeg!!!");
         }
         return eerstePersoonInRij;
     }
