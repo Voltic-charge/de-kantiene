@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class KassaRij
 {
     // instance variables - replace the example below with your own
+    private Persoon eerstePersoonInRij;
     private ArrayList<Persoon> personen;
     private boolean rij;
 
@@ -33,8 +34,12 @@ public class KassaRij
      * Als er niemand in de rij staat geeft deze
      * @return eerste persoon in de rij of null
      */
-    public void eerstePersoonInRij() {//Persoon eerstePersoonInRij() {
-        return ;
+    public Persoon eerstePersoonInRij() {
+        if(erIsEenRij() == true){
+           eerstePersoonInRij = personen.get(0);
+           
+        }
+        return eerstePersoonInRij;
     }
     /**
      * Methode kijkt of er personen in de rij staan.
