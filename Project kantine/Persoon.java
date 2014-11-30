@@ -152,8 +152,8 @@ public class Persoon
      /**
      * set Geslacht
      */
-   public void setGeslacht(char geslacht)
-   {
+    public void setGeslacht(char geslacht)
+    {
        if(geslacht != 'v' && geslacht != 'm')
        {
            this.geslacht = 0;
@@ -162,26 +162,26 @@ public class Persoon
        {  
         this.geslacht = geslacht;
        }
-   }
+    }
    
-   /**
-   * Getter voor geboortedatum
-   * @return Geboortedatum 
-   */
-   public String getGeboorteDatum() {
-   String temp;
-   if (dag==0 && maand==0 && jaar==0) {
-   temp="Onbekend";
-   } else {
-   temp=dag+"/"+maand+"/"+jaar;
-   }
-   return temp;
-   }
+    /**
+    * Getter voor geboortedatum
+    * @return Geboortedatum 
+    */
+    public String getGeboorteDatum() {
+        String temp;
+        if (dag==0 && maand==0 && jaar==0) {
+            temp="Onbekend";
+        } else {
+            temp=dag+"/"+maand+"/"+jaar;
+      }
+      return temp;
+    }
    
-   /**
+    /**
     * get burgerservice nummer
     */
-   public String getBSN(){
+    public String getBSN(){
        String temp;
        if(bsn.length() == 9)
        {
@@ -191,11 +191,11 @@ public class Persoon
            temp = "Burgerservicenummer is ongeldig!!!";
            return temp;
        }
-   }
-   /**
+    }
+    /**
     * get geslacht
     */
-   public String getGeslacht(){
+    public String getGeslacht(){
        String temp;
            switch(geslacht) {
                case 'v':
@@ -209,32 +209,32 @@ public class Persoon
                break;
            }
            return temp;
-   }
+    }
    
-   /**
-    * get voornaam
-    * return voornaam
-    */
-   public String getVoornaam()
-   {
+    /**
+     * get voornaam
+     * return voornaam
+     */
+    public String getVoornaam()
+    {
        return voornaam;
-   }
+    }
    
-   /**
-    * get achternaam
-    * return achternaam
-    */
-   public String getAchternaam()
-   {
+    /**
+     * get achternaam
+     * return achternaam
+     */
+    public String getAchternaam()
+    {
        return achternaam;
-   }
+    }
    
-   /**
-    * get gegevens
-    * print alle gegevens van de persoon
-    */
-   public void drukAf()
-   {
+    /**
+     * get gegevens
+     * print alle gegevens van de persoon
+     */
+    public void drukAf()
+    {
        System.out.println("############################################");
        System.out.println("Voornaam: "+ voornaam);
        System.out.println("Achternaam: "+ achternaam);
@@ -249,16 +249,39 @@ public class Persoon
        System.out.println("############################################");
        
        
-   }
+    }
    
-   /**
-   * Methode om dienblad te koppelen aan een persoon
-   * @param dienblad
-   */
-   public void pakDienblad(Dienblad dienblad) {
-       if(dienblad == null){
+    /**
+    * Methode om dienblad te koppelen aan een persoon
+    * @param dienblad
+    */
+    public void pakDienblad(Dienblad dienblad) {
+        if(dienblad == null){
            dienblad = new Dienblad();
-  } 
+       } 
+    }
+    /**
+    * Methode om artikel te pakken en te plaatsen op het dienblad
+    * @param artikel
+    */
+    public void pakArtikel(Artikel artikel) {
+     //method body omitted
+    }
+    /**
+    * Methode om de totaalprijs van de artikelen
+    * op dienblad dat bij de persoon hoort uit te rekenen
+    * @return De totaalprijs
+    */
+    public double getTotaalPrijs() {
+       return 0;
+    }
+    /**
+    * Methode om het aantal artikelen op dienblad dat bij de
+    * persoon hoort te tellen
+    * @return Het aantal artikelen
+    */
+    public int getAantalArtikelen() {
+       return 0;
+    }
 }
-}
-
+ 
