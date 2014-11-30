@@ -13,6 +13,7 @@ public class Kassa {
       */
      public Kassa(KassaRij kassarij) {
         persoon = kassarij.eerstePersoonInRij();
+        jaljdfaljflaj
          
      }
      /**
