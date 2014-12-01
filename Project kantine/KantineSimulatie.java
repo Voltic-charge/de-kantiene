@@ -8,11 +8,13 @@
 
 public class KantineSimulatie {
      private Kantine kantine;
+     private int i;
      /**
       * Constructor
       */
      public KantineSimulatie() {
          kantine=new Kantine();
+         i = 0;
      }
      
      /**
@@ -30,10 +32,10 @@ public class KantineSimulatie {
                 kantine.loopPakSluitAan();       
             }
             kantine.verwerkRijVoorKassa();
-            System.out.println("Dag " k + 1);
+            System.out.println("Dag " + k + 1);
             System.out.println("Dagtotalen:");
-            System.out.println("Totaal in kassa: " kantine.hoeveelheidGeldInKassa());
-            System.out.println("Totaal aantal artikelen: " kantine.aantalArtikelen())
+            System.out.println("Totaal in kassa: " + kantine.hoeveelheidGeldInKassa());
+            System.out.println("Totaal aantal artikelen: " + kantine.aantalArtikelen());
             
             
             // verwerk rij voor de kassa
