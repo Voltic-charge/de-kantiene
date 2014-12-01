@@ -8,6 +8,7 @@
 public class Kassa {
     private Persoon persoon;
     private double totaalPrijs;
+    private double teBetalen;
     private int aantalArtikelen;
     private int totaalGepasseerd;
     private Dienblad blad;
@@ -29,8 +30,16 @@ public class Kassa {
      public void rekenAf(Persoon persoon) {
          //method body omitted
          blad = persoon.getDienblad();
-         aantalArtikelen = blad.getAantalArtikelen();
-         totaalPrijs = blad.getTotaalPrijs();             
+         aantalArtikelen = blad.getAantalArtikelen(); 
+         teBetalen = blad.getTotaalPrijs(); 
+         totaalPrijs += teBetalen;
+         totaalGepasseerd += aantalArtikelen;
+         
+         System.out.println("############################################");
+         System.out.println("KASSABON"); 
+         System.out.println("Te betalen: " + teBetalen + " euro");
+         System.out.println("Aantal artikelen: " + aantalArtikelen); 
+         System.out.println("############################################");
      }
      
      /**
@@ -42,7 +51,7 @@ public class Kassa {
       */
      public int aantalArtikelen() {
          //method body omitted
-         return aantalArtikelen;
+         return totaalGepasseerd;
      
      }
      
@@ -63,9 +72,9 @@ public class Kassa {
       * de totale hoeveelheid geld in de kassa.
       */
      public void resetKassa() {
-     //method body omitted
-     aantalArtikelen = 0;
-     totaalPrijs = 0;
+        //method body omitted
+        totaalGepasseerd = 0;
+        totaalPrijs = 0;
     }
 }
  
