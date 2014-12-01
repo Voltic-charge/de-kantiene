@@ -35,8 +35,8 @@ public class Kantine {
               persoon = new Persoon();
               dienblad = new Dienblad();
               persoon.pakDienblad(dienblad);
-              artikel = new Artikel("patat", 200);
-              artikel1 = new Artikel("frikandel", 100);
+              artikel = new Artikel("patat", 2);
+              artikel1 = new Artikel("frikandel", 1);
               persoon.pakArtikel(artikel);
               persoon.pakArtikel(artikel1);
               kassarij.sluitAchteraan(persoon);
