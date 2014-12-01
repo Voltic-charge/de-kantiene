@@ -8,6 +8,11 @@
 public class Kantine {
     private Kassa kassa;
     private KassaRij kassarij;
+    private Persoon persoon;
+    private Dienblad dienblad;
+    private Artikel artikel;
+    private Artikel artikel1;
+    
     /**
      * Constructor
      */
@@ -29,15 +34,21 @@ public class Kantine {
               persoon = new Persoon();
               dienblad = new Dienblad();
               persoon.pakDienblad(dienblad);
+              artikel = new Artikel();
+              artikel1 = new Artikel();
+              persoon.pakArtikel(artikel);
+              persoon.pakArtikel(artikel1);
+              kassarij.sluitAchteraan(persoon);
+              kassarij.erIsEenRij();
         }
         
          /**
           * Deze methode handelt de rij voor de kassa af.
          */
          public void verwerkRijVoorKassa() {
-             while() {
+             //while() {
                  //omitted
-             }
+             //}
          }
          /**
           * Deze methode telt het geld uit de kassa
@@ -45,6 +56,7 @@ public class Kantine {
           */
          public double hoeveelheidGeldInKassa() {
              //omitted
+             return 0;
          }
          
          /**
@@ -53,6 +65,7 @@ public class Kantine {
           */
          public int aantalArtikelen(){
              //omitted
+             return 0;
          }
         
          /**
