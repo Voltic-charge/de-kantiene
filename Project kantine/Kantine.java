@@ -45,10 +45,11 @@ public class Kantine {
          /**
           * Deze methode handelt de rij voor de kassa af.
          */
-         public void verwerkRijVoorKassa() {
-             //while() {
+        public void verwerkRijVoorKassa() {
+             while(kassarij.erIsEenRij()) {
                  //omitted
-             //}
+                 kassa.rekenAf(kassarij.eerstePersoonInRij());
+             }
          }
          /**
           * Deze methode telt het geld uit de kassa
