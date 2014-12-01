@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Stack;
 /**
  * Write a description of class Diemblad here.
  * 
@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * @version (v1)
  */
 public class Dienblad {
- private ArrayList<Artikel> artikelen;
+ private Stack<Artikel> artikelen;
  
  /**
  * Constructor
  */
  public Dienblad() {
-     artikelen = new ArrayList<Artikel>();
+     artikelen = new Stack<Artikel>();
  }
  /**
  * Methode om artikel aan dienblad toe te voegen

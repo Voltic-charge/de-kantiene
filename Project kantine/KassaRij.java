@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 /**
  * Write a description of class KassaRij here.
  * 
@@ -9,7 +9,7 @@ public class KassaRij
 {
     // instance variables - replace the example below with your own
     private Persoon eerstePersoonInRij;
-    private ArrayList<Persoon> personen;
+    private LinkedList<Persoon> kassarij;
     private boolean rij;
 
     /**
@@ -18,7 +18,9 @@ public class KassaRij
     public KassaRij()
     {
         // initialise instance variables
-        personen = new ArrayList<Persoon>();
+        kassarij = new LinkedList();
+        //personen.add("lol");
+        
     }
     /**
      * persoon sluit achter in de rij aan
@@ -26,7 +28,7 @@ public class KassaRij
      */
     public void sluitAchteraan(Persoon persoon) 
     {
-        personen.add(persoon);        
+        kassarij.add(persoon);        
     }
     /**
      * indien er een rij bestaat, de eerste persoon uit
@@ -36,8 +38,7 @@ public class KassaRij
      */
     public Persoon eerstePersoonInRij() {
         if(erIsEenRij() == true){
-           eerstePersoonInRij = personen.get(0);
-           personen.remove(0);           
+          eerstePersoonInRij = kassarij.poll();          
         }else{
             eerstePersoonInRij = null;
         }
@@ -49,7 +50,7 @@ public class KassaRij
      */
     public boolean erIsEenRij() {
         //method body omitted
-        if(personen.size() > 0)
+        if(kassarij.size() > 0)
         {
             rij = true;
         }else{
