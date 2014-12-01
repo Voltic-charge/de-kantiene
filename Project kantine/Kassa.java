@@ -35,11 +35,11 @@ public class Kassa {
          totaalPrijs += teBetalen;
          totaalGepasseerd += aantalArtikelen;
          
-         System.out.println("############################################");
-         System.out.println("KASSABON"); 
-         System.out.println("Te betalen: " + teBetalen + " euro");
-         System.out.println("Aantal artikelen: " + aantalArtikelen); 
-         System.out.println("############################################");
+         //System.out.println("############################################");
+         //System.out.println("KASSABON"); 
+         //System.out.println("Te betalen: " + teBetalen + " euro");
+         //System.out.println("Aantal artikelen: " + aantalArtikelen); 
+         // System.out.println("############################################");
      }
      
      /**
