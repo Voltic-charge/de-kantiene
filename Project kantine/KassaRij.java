@@ -52,6 +52,8 @@ public class KassaRij
         if(personen.size() > 0)
         {
             rij = true;
+        }else{
+            rij = false;
         }
         
         return rij;

@@ -12,6 +12,7 @@ public class Kantine {
     private Dienblad dienblad;
     private Artikel artikel;
     private Artikel artikel1;
+    private boolean test;
     
     /**
      * Constructor
@@ -34,21 +35,24 @@ public class Kantine {
               persoon = new Persoon();
               dienblad = new Dienblad();
               persoon.pakDienblad(dienblad);
-              artikel = new Artikel();
-              artikel1 = new Artikel();
+              artikel = new Artikel("patat", 200);
+              artikel1 = new Artikel("frikandel", 100);
               persoon.pakArtikel(artikel);
               persoon.pakArtikel(artikel1);
               kassarij.sluitAchteraan(persoon);
-              kassarij.erIsEenRij();
+              test = kassarij.erIsEenRij();
         }
         
          /**
           * Deze methode handelt de rij voor de kassa af.
          */
         public void verwerkRijVoorKassa() {
-             while(kassarij.erIsEenRij()) {
+            
+             while(test) {
                  //omitted
+                 
                  kassa.rekenAf(kassarij.eerstePersoonInRij());
+                 test = kassarij.erIsEenRij();
              }
          }
          /**
@@ -57,7 +61,7 @@ public class Kantine {
           */
          public double hoeveelheidGeldInKassa() {
              //omitted
-             return 0;
+             return kassa.hoeveelheidGeldInKassa();
          }
          
          /**
