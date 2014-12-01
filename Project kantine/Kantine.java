@@ -70,7 +70,7 @@ public class Kantine {
           */
          public int aantalArtikelen(){
              //omitted
-             return 0;
+             return kassa.aantalArtikelen();
          }
         
          /**
@@ -79,6 +79,6 @@ public class Kantine {
           * en "leegt" de inhoud van de kassa.
           */
          public void resetKassa() {
-             // omitted
+             kassa.resetKassa();
          }
 }
