@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 /**
  * Write a description of class Persoon here.
+ * This class makes an object with all the information you need for a person
  * 
- * @author (Bas de Ruiter) 
+ * @author (Bas de Ruiter & Jeroen Bakker) 
  * @version (v.1)
  */
 public class Persoon
@@ -150,19 +151,19 @@ public class Persoon
   
     }
     
-     /**
+    /**
      * set Geslacht
      */
     public void setGeslacht(char geslacht)
     {
-       if(geslacht != 'v' && geslacht != 'm')
-       {
-           this.geslacht = 0;
-           System.out.println("De invoer van het geslacht klopt niet, voer in: 'v' of 'm'!");
-       }else
-       {  
-        this.geslacht = geslacht;
-       }
+        if(geslacht != 'v' && geslacht != 'm')
+        {
+            this.geslacht = 0;
+            System.out.println("De invoer van het geslacht klopt niet, voer in: 'v' of 'm'!");
+        }else
+        {  
+            this.geslacht = geslacht;
+        }
     }
    
     /**
@@ -173,43 +174,43 @@ public class Persoon
         String temp;
         if (dag==0 && maand==0 && jaar==0) {
             temp="Onbekend";
-        } else {
+        }else{
             temp=dag+"/"+maand+"/"+jaar;
-      }
-      return temp;
+        }
+        return temp;
     }
    
     /**
     * get burgerservice nummer
     */
     public String getBSN(){
-       String temp;
-       if(bsn.length() == 9)
-       {
-           temp = bsn;
-           return temp;
-       }else{
-           temp = "Burgerservicenummer is ongeldig!!!";
-           return temp;
-       }
+        String temp;
+        if(bsn.length() == 9)
+        {
+            temp = bsn;
+            return temp;
+        }else{
+            temp = "Burgerservicenummer is ongeldig!!!";
+            return temp;
+        }
     }
     /**
     * get geslacht
     */
     public String getGeslacht(){
-       String temp;
-           switch(geslacht) {
-               case 'v':
-               temp = "vrouw";
-               break;
-               case 'm':
-               temp = "man";
-               break;
-               default:
-               temp = "onbekent";
-               break;
-           }
-           return temp;
+        String temp;
+        switch(geslacht) {
+            case 'v':
+            temp = "vrouw";
+            break;
+            case 'm':
+            temp = "man";
+            break;
+            default:
+            temp = "onbekent";
+            break;
+        }
+        return temp;
     }
    
     /**
@@ -218,7 +219,7 @@ public class Persoon
      */
     public String getVoornaam()
     {
-       return voornaam;
+        return voornaam;
     }
    
     /**
@@ -227,7 +228,7 @@ public class Persoon
      */
     public String getAchternaam()
     {
-       return achternaam;
+        return achternaam;
     }
    
     /**
@@ -236,20 +237,18 @@ public class Persoon
      */
     public void drukAf()
     {
-       System.out.println("############################################");
-       System.out.println("Voornaam: "+ voornaam);
-       System.out.println("Achternaam: "+ achternaam);
-       System.out.println("Burgerservicenummer: "+ bsn);
-       System.out.println("Geboortedatum: "+ dag + "/" + maand + "/" + jaar);
-       if(geslacht == 'v'){
-       System.out.println("Geslacht: vrouw");
-       }
-       if(geslacht == 'm'){
-       System.out.println("Geslacht: man");
-       }
-       System.out.println("############################################");
-       
-       
+        System.out.println("############################################");
+        System.out.println("Voornaam: "+ voornaam);
+        System.out.println("Achternaam: "+ achternaam);
+        System.out.println("Burgerservicenummer: "+ bsn);
+        System.out.println("Geboortedatum: "+ dag + "/" + maand + "/" + jaar);
+        if(geslacht == 'v'){
+            System.out.println("Geslacht: vrouw");
+        }
+        if(geslacht == 'm'){
+System.out.println("Geslacht: man");
+        }
+        System.out.println("############################################");
     }
    
     /**
@@ -267,10 +266,10 @@ public class Persoon
         dienblad.voegToe(artikel);
     }
     /**
-    * Methode om de totaalprijs van de artikelen
-    * op dienblad dat bij de persoon hoort uit te rekenen
-    * @return De totaalprijs
-    */
+     * Methode om de totaalprijs van de artikelen
+     * op dienblad dat bij de persoon hoort uit te rekenen
+     * @return De totaalprijs
+     */
     public double getTotaalPrijs() {
         return dienblad.getTotaalPrijs();      
     }
@@ -283,12 +282,12 @@ public class Persoon
     }
 
     /**
-    * Methode om het aantal artikelen op dienblad dat bij de
-    * persoon hoort te tellen
-    * @return Het aantal artikelen
-    */
+     * Methode om het aantal artikelen op dienblad dat bij de
+     * persoon hoort te tellen
+     * @return Het aantal artikelen
+     */
     public int getAantalArtikelen() {
-      return dienblad.getAantalArtikelen();
+        return dienblad.getAantalArtikelen();
     }
 }
  

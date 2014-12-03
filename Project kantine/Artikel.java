@@ -1,47 +1,49 @@
 
 /**
  * Write a description of class Artikel here.
+ * This class creates objects with a name and a price. 
  * 
- * @author (Bas de Ruiter) 
+ * @author (Bas de Ruiter & Jeroen Bakker) 
  * @version (v.1)
  */
 public class Artikel
 {
-    // instance variables - replace the example below with your own
-    private String Naam;
-    private int Prijs;
+   // instance variables - replace the example below with your own
+   private String naam;
+   private int prijs;
 
-    /**
-     * Constructor for objects of class Artikel
-     */
-    public Artikel(String ArtikelNaam, int ArtikelPrijs)
-    {
-        // initialise instance variables
-        Naam = ArtikelNaam;
-        Prijs = ArtikelPrijs;
-    }
+   /**
+    * Constructor for objects of class Artikel
+    */
+   public Artikel(String ArtikelNaam, int ArtikelPrijs)
+   {
+       // initialise instance variables
+       naam = ArtikelNaam;
+       prijs = ArtikelPrijs;
+   }
     
-    /**
-     * constructor for objects of class Artikel
-     * onderdeel van opgave 1 van leertaakweek 2
-     */
-    public Artikel(){
-        
-    }
+   /**
+    * constructor for objects of class Artikel
+    * onderdeel van opgave 1 van leertaakweek 2
+    */
+   public Artikel(){
+        naam = null;
+        prijs = 0;
+   }
 
     /**
      * Get ArtikelNaam
      */
    public String getArtikelNaam()
    {
-        return Naam;
+        return naam;
    }  
    /**
     * Get ArtikelPrijs
     */
    public int getArtikelPrijs()
    {
-       return Prijs;
+       return prijs;
    }
    
    /**
@@ -49,7 +51,7 @@ public class Artikel
     */
    public void setArtikelNaam(String ArtikelNaam)
    {
-       Naam = ArtikelNaam;
+       naam = ArtikelNaam;
    }
    
    /**
@@ -57,7 +59,7 @@ public class Artikel
     */
    public void setArtikelPrijs(int ArtikelPrijs)
    {
-       Prijs = ArtikelPrijs;
+       prijs = ArtikelPrijs;
    }/**
     * get gegevens
     * print alle gegevens van het artikel
@@ -65,8 +67,8 @@ public class Artikel
    public void drukAf()
    {
        System.out.println("############################################");
-       System.out.println("Artikelnaam: " + Naam);
-       System.out.println("Artikelprijs: " + Prijs +"cent");
+       System.out.println("Artikelnaam: " + naam);
+       System.out.println("Artikelprijs: " + prijs +"cent");
        System.out.println("############################################");
        
        

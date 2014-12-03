@@ -1,17 +1,16 @@
 import java.util.LinkedList;
 /**
  * Write a description of class KassaRij here.
+ * This class is a LinkedList where you can store people in with the principle FIFO.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Jeroen Bakker & Bas de Ruiter) 
+ * @version (v1.)
  */
 public class KassaRij
 {
     // instance variables - replace the example below with your own
-    private Persoon eerstePersoonInRij;
     private LinkedList<Persoon> kassarij;
-    private boolean rij;
-
+    
     /**
      * Constructor for objects of class KassaRij
      */
@@ -22,6 +21,7 @@ public class KassaRij
         //personen.add("lol");
         
     }
+    
     /**
      * persoon sluit achter in de rij aan
      * @param persoon
@@ -37,8 +37,9 @@ public class KassaRij
      * @return eerste persoon in de rij of null
      */
     public Persoon eerstePersoonInRij() {
+        Persoon eerstePersoonInRij;
         if(erIsEenRij() == true){
-          eerstePersoonInRij = kassarij.poll();          
+            eerstePersoonInRij = kassarij.poll();          
         }else{
             eerstePersoonInRij = null;
         }
@@ -49,14 +50,13 @@ public class KassaRij
      * @return of er well of geen rij bestaat
      */
     public boolean erIsEenRij() {
-        //method body omitted
+        boolean rij;
         if(kassarij.size() > 0)
         {
             rij = true;
         }else{
             rij = false;
         }
-        
         return rij;
     }
 }

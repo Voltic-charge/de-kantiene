@@ -1,39 +1,35 @@
-
 /**
  * Write a description of class KantineSimulatie here.
+ * This class simulates a few days in a cantine. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Bas de Ruiter & Jeroen Bakker) 
+ * @version (v1.)
  */
 
 public class KantineSimulatie {
-     private Kantine kantine;
-     private int i;
-     private int dag;
-     /**
-      * Constructor
-      */
-     public KantineSimulatie() {
-         kantine=new Kantine();
-         i = 0;
-     }
+    private Kantine kantine;
+    /**
+     * Constructor
+     */
+    public KantineSimulatie() {
+        kantine=new Kantine();
+    }
      
-     /**
-      * Deze methode simuleert een aantal dagen in het
-      * verloop van de kantine
-      * @param dagen
-      */
+    /**
+     * Deze methode simuleert een aantal dagen in het
+     * verloop van de kantine
+     * @param dagen
+     */
     public void simuleer(int dagen) {
         // for lus voor dagen
-        i = 0;
-        for(int k=0; k <= dagen - 1; k++ ) {
+        for(int i=0; i <= dagen - 1; i++ ) {
             // per dag nu even vast 10+i personen naar binnen
             // laten gaan, wordt volgende week veranderd...
             // for lus voor personen
             for(int j=0;j<10+i;j++){
                 kantine.loopPakSluitAan();       
             }
-            dag = k + 1;
+            int dag = i + 1;
             kantine.verwerkRijVoorKassa();
             System.out.println("*****************************************");
             System.out.println("Dag " + dag);
