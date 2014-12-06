@@ -1,6 +1,6 @@
 import java.util.Stack;
+import java.util.Iterator;
 /**
- * Write a description of class Diemblad here.
  * This class creates an object with a stack were you can store youre acticles
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
@@ -22,33 +22,14 @@ public class Dienblad {
     public void voegToe(Artikel artikel) {
          artikelen.add(artikel);
     }
-    
     /**
-     * Methode om aantal artikelen op dienblad te tellen
-     * @return Het aantal artikelen 
+     * @return Stack artikelen
      */
-    public int getAantalArtikelen() {
-         return artikelen.size();
-    }
-    
-    /**
-     * Methode om de totaalprijs van de artikelen 
-     * op dienblad uit te rekenen
-     * @return De totaalprijs
-     */
-    public double getTotaalPrijs() {
-        double totaal = 0;
-        if(artikelen.size() > 0){
-            for (Artikel artikel : artikelen){
-                totaal += artikel.getArtikelPrijs();
-            }
-     
-        }
-        return totaal;
-        // Kijk wat de kosten zijn per product
-        // Tel alle kosten per product bij elkaar op.
-        // geef totaal terug
-        //return 0;
+    public Iterator getDienblad(){
+        Iterator artikelen = this.artikelen.iterator();
+        
+            
+        return artikelen;
     }
 }
 

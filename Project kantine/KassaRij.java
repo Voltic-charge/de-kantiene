@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 /**
- * Write a description of class KassaRij here.
  * This class is a LinkedList where you can store people in with the principle FIFO.
  * 
  * @author (Jeroen Bakker & Bas de Ruiter) 
@@ -17,9 +16,7 @@ public class KassaRij
     public KassaRij()
     {
         // initialise instance variables
-        kassarij = new LinkedList();
-        //personen.add("lol");
-        
+        kassarij = new LinkedList();        
     }
     
     /**
@@ -30,6 +27,7 @@ public class KassaRij
     {
         kassarij.add(persoon);        
     }
+    
     /**
      * indien er een rij bestaat, de eerste persoon uit
      * de rij verwijderen en retourneren.

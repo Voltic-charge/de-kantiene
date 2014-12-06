@@ -8,72 +8,69 @@
  */
 public class Artikel
 {
-   // instance variables - replace the example below with your own
-   private String naam;
-   private int prijs;
-
-   /**
-    * Constructor for objects of class Artikel
-    */
-   public Artikel(String ArtikelNaam, int ArtikelPrijs)
-   {
-       // initialise instance variables
-       naam = ArtikelNaam;
-       prijs = ArtikelPrijs;
-   }
-    
-   /**
-    * constructor for objects of class Artikel
-    * onderdeel van opgave 1 van leertaakweek 2
-    */
-   public Artikel(){
-        naam = null;
-        prijs = 0;
-   }
+    // instance variables - replace the example below with your own
+    private String naam;
+    private int prijs;
 
     /**
-     * Get ArtikelNaam
+     * Constructor for objects of class Artikel
      */
-   public String getArtikelNaam()
-   {
-        return naam;
-   }  
-   /**
-    * Get ArtikelPrijs
-    */
-   public int getArtikelPrijs()
-   {
-       return prijs;
-   }
+    public Artikel(String ArtikelNaam, int ArtikelPrijs)
+    {
+        // initialise instance variables
+        naam = ArtikelNaam;
+        prijs = ArtikelPrijs;
+    }
+    
+    /**
+     * constructor for objects of class Artikel
+     * onderdeel van opgave 1 van leertaakweek 2
+     */
+    public Artikel(){
+         naam = null;
+         prijs = 0;
+    }
+
+     /**
+      * Get ArtikelNaam
+      */
+    public String getArtikelNaam()
+    {
+         return naam;
+    }  
+    /**
+     * Get ArtikelPrijs
+     */
+    public int getArtikelPrijs()
+    {
+        return prijs;
+    }
    
-   /**
-    * Set ArtikelNaam
-    */
-   public void setArtikelNaam(String ArtikelNaam)
-   {
-       naam = ArtikelNaam;
-   }
+    /**
+     * Set ArtikelNaam
+     */
+    public void setArtikelNaam(String ArtikelNaam)
+    {
+        naam = ArtikelNaam;
+    }
    
-   /**
-    * Set ArtikelPrijs
-    */
-   public void setArtikelPrijs(int ArtikelPrijs)
-   {
-       prijs = ArtikelPrijs;
-   }/**
-    * get gegevens
-    * print alle gegevens van het artikel
-    */
-   public void drukAf()
-   {
-       System.out.println("############################################");
-       System.out.println("Artikelnaam: " + naam);
-       System.out.println("Artikelprijs: " + prijs +"cent");
-       System.out.println("############################################");
-       
-       
-   }
+    /**
+     * Set ArtikelPrijs
+     */
+    public void setArtikelPrijs(int ArtikelPrijs)
+    {
+        prijs = ArtikelPrijs;
+    }
    
-   
-       
+    /**
+     * get gegevens
+     * print alle gegevens van het artikel
+     */
+    public void drukAf()
+    {
+        System.out.println("############################################");
+        System.out.println("Artikelnaam: " + naam);
+        System.out.println("Artikelprijs: " + prijs +"cent");
+        System.out.println("############################################");       
+    }      
 }

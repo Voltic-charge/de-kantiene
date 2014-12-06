@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 /**
- * Write a description of class Persoon here.
  * This class makes an object with all the information you need for a person
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
@@ -17,7 +16,6 @@ public class Persoon
     private int jaar;
     private char geslacht;
     private Dienblad dienblad;
-    private ArrayList<Artikel> artikelen;
 
     /**
      * Constructor for objects of class Persoon
@@ -30,7 +28,6 @@ public class Persoon
         setGeboorteDatum(dag, maand, jaar);
         this.geslacht = geslacht;
         dienblad = null;
-
     }
     
     /**
@@ -53,7 +50,7 @@ public class Persoon
         this.bsn = bsn;
     }
     
-     /**
+    /**
      * Set Voornaam
      */
     public void setVoornaam(String voornaam)
@@ -61,7 +58,7 @@ public class Persoon
         this.voornaam = voornaam;
     }
     
-     /**
+    /**
      * Set Achternaam
      */
     public void setAchternaam(String achternaam)
@@ -76,79 +73,77 @@ public class Persoon
     {
        if(dag >= 0 && maand >= 1 && maand <= 12 && jaar >= 1900 && jaar <=2100)
        {
-       switch(maand)
-       {
-           case 1:
-           case 3:
-           case 5:
-           case 7:
-           case 8:
-           case 10:
-           case 12:
-           if(dag > 31){
-               System.out.println("Dag/maand combinatie bestaat niet!");
-               this.dag = 0;
-               this.maand = 0;
-               this.jaar = 0;
-           }else
+           switch(maand)
            {
-               this.dag = dag;
-               this.maand = maand;
-               this.jaar = jaar;               
-           }
-           break;
-           
-           case 2:
-           boolean IsSchrikkelJaar  = ((jaar % 4 == 0) && (jaar % 100 != 0) || (jaar % 400 == 0));
-           // boolean is true als newJaar = schikkeljaar.
-           if(IsSchrikkelJaar){
-               if(dag > 29){
-                    System.out.println("Dag/maand combinatie bestaat niet!");
-                    this.dag = 0;
-                    this.maand = 0;
-                    this.jaar = 0;
-               }else{
-                   this.dag = dag;
-                   this.maand = maand;
-                   this.jaar = jaar; 
-               }
-                   
-           }else{
-               if(dag > 28){
+               case 1:
+               case 3:
+               case 5:
+               case 7:
+               case 8:
+               case 10:
+               case 12:
+               if(dag > 31){
                    System.out.println("Dag/maand combinatie bestaat niet!");
-                    this.dag = 0;
-                    this.maand = 0;
-                    this.jaar = 0;
+                   this.dag = 0;
+                   this.maand = 0;
+                   this.jaar = 0;
+                }else
+                {
+                    this.dag = dag;
+                    this.maand = maand;
+                    this.jaar = jaar;               
+                }
+               break;
+           
+               case 2:
+               boolean IsSchrikkelJaar  = ((jaar % 4 == 0) && (jaar % 100 != 0) || (jaar % 400 == 0));
+               // boolean is true als newJaar = schikkeljaar.
+               if(IsSchrikkelJaar){
+                   if(dag > 29){
+                       System.out.println("Dag/maand combinatie bestaat niet!");
+                       this.dag = 0;
+                       this.maand = 0;
+                       this.jaar = 0;
+                   }else{
+                       this.dag = dag;
+                       this.maand = maand;
+                       this.jaar = jaar; 
+                   }                   
                }else{
+                   if(dag > 28){
+                       System.out.println("Dag/maand combinatie bestaat niet!");
+                       this.dag = 0;
+                       this.maand = 0;
+                       this.jaar = 0;
+                   }else{
+                       this.dag = dag;
+                       this.maand = maand;
+                       this.jaar = jaar; 
+                   }
+               }
+               break;
+           
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+               if(dag > 30){
+                   System.out.println("Dag/maand combinatie bestaat niet!");
+                   this.dag = 0;
+                   this.maand = 0;
+                   this.jaar = 0;
+               }else
+               {
                    this.dag = dag;
                    this.maand = maand;
-                   this.jaar = jaar; 
-               }
-           }
-           break;
-           
-           case 4:
-           case 6:
-           case 9:
-           case 11:
-           if(dag > 30){
-               System.out.println("Dag/maand combinatie bestaat niet!");
-               this.dag = 0;
-               this.maand = 0;
-               this.jaar = 0;
-           }else
-           {
-               this.dag = dag;
-               this.maand = maand;
-               this.jaar = jaar;
-           }     
-           break;
-       }
+                   this.jaar = jaar;
+               }     
+               break;
+            }
        }else
        {
            System.out.println("De ingevoerde geboortedatum is ongeldig!!!");
-       }
-  
+       }  
     }
     
     /**
@@ -167,9 +162,9 @@ public class Persoon
     }
    
     /**
-    * Getter voor geboortedatum
-    * @return Geboortedatum 
-    */
+     * Getter voor geboortedatum
+     * @return Geboortedatum 
+     */
     public String getGeboorteDatum() {
         String temp;
         if (dag==0 && maand==0 && jaar==0) {
@@ -181,8 +176,8 @@ public class Persoon
     }
    
     /**
-    * get burgerservice nummer
-    */
+     * get burgerservice nummer
+     */
     public String getBSN(){
         String temp;
         if(bsn.length() == 9)
@@ -195,8 +190,8 @@ public class Persoon
         }
     }
     /**
-    * get geslacht
-    */
+     * get geslacht
+     */
     public String getGeslacht(){
         String temp;
         switch(geslacht) {
@@ -246,48 +241,24 @@ public class Persoon
             System.out.println("Geslacht: vrouw");
         }
         if(geslacht == 'm'){
-System.out.println("Geslacht: man");
+            System.out.println("Geslacht: man");
         }
         System.out.println("############################################");
     }
    
     /**
-    * Methode om dienblad te koppelen aan een persoon
-    * @param dienblad
-    */
+     * Methode om dienblad te koppelen aan een persoon
+     * @param dienblad
+     */
     public void pakDienblad(Dienblad dienblad) {
         this.dienblad = dienblad; 
     }
-    /**
-    * Methode om artikel te pakken en te plaatsen op het dienblad
-    * @param artikel
-    */
-    public void pakArtikel(Artikel artikel) {
-        dienblad.voegToe(artikel);
-    }
-    /**
-     * Methode om de totaalprijs van de artikelen
-     * op dienblad dat bij de persoon hoort uit te rekenen
-     * @return De totaalprijs
-     */
-    public double getTotaalPrijs() {
-        return dienblad.getTotaalPrijs();      
-    }
-    
+        
     /**
      * methode die er voor zorgt dat je dit dienblad(van dit specifiek persoon) kan terughalen in andere klassen.
      */
     public Dienblad getDienblad(){
-        return dienblad;
-    }
-
-    /**
-     * Methode om het aantal artikelen op dienblad dat bij de
-     * persoon hoort te tellen
-     * @return Het aantal artikelen
-     */
-    public int getAantalArtikelen() {
-        return dienblad.getAantalArtikelen();
+        return this.dienblad;
     }
 }
  

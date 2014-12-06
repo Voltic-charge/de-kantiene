@@ -1,20 +1,23 @@
+import java.util.Iterator;
 /**
- * Write a description of class Kassa here.
  * This class creates a kassa.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Jeroen Bakker & Bas de Ruiter) 
+ * @version (v1)
  */
 public class Kassa {
     private double totaalPrijs;
     private int totaalGepasseerd;
+    private Iterator<Artikel> artikelen;
     
     /**
      * Constructor
      */
     public Kassa(KassaRij kassarij) {
-        totaalGepasseerd = 0;         
+        totaalGepasseerd = 0; 
+        totaalPrijs = 0;
     }
+    
     /**
      * vraag het aantal artikelen en de totaalprijs op.
      * De implementatie wordt later vervangen
@@ -22,11 +25,16 @@ public class Kassa {
      * @param persoon die moet afrekenen
      */
     public void rekenAf(Persoon persoon) {
-        int aantalArtikelen;
-        double teBetalen;
-        Dienblad blad = persoon.getDienblad();
-        aantalArtikelen = blad.getAantalArtikelen(); 
-        teBetalen = blad.getTotaalPrijs(); 
+        int aantalArtikelen = 0;
+        double teBetalen = 0;
+        Dienblad dienblad = getDienblad(persoon);
+        this.artikelen = dienblad.getDienblad();
+        while(artikelen.hasNext()){
+            Artikel artikel = this.artikelen.next();
+            teBetalen += artikel.getArtikelPrijs();
+            aantalArtikelen++;
+        }
+
         totaalPrijs += teBetalen;
         totaalGepasseerd += aantalArtikelen;
          
@@ -35,6 +43,14 @@ public class Kassa {
         //System.out.println("Te betalen: " + teBetalen + " euro");
         //System.out.println("Aantal artikelen: " + aantalArtikelen); 
         // System.out.println("############################################");
+    }
+    
+    /**
+     * @return dienblad met de klasse Dienblad van een bepaald persoon
+     */
+    public Dienblad getDienblad(Persoon persoon){
+        Dienblad dienblad = persoon.getDienblad();
+        return dienblad;
     }
      
     /**

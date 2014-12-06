@@ -1,5 +1,4 @@
 /**
- * Write a description of class Kantiene here.
  * This class simulates a kantine with a cash register, a row, and methods for people to get in line
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
@@ -31,8 +30,8 @@ public class Kantine {
         persoon.pakDienblad(dienblad);
         Artikel artikel1 = new Artikel("patat", 2);
         Artikel artikel2 = new Artikel("frikandel", 1);
-        persoon.pakArtikel(artikel1);
-        persoon.pakArtikel(artikel2);
+        dienblad.voegToe(artikel1);
+        dienblad.voegToe(artikel2);
         kassarij.sluitAchteraan(persoon);
     }
         
@@ -44,23 +43,14 @@ public class Kantine {
             kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }
-    
-    /**
-     * Deze methode telt het geld uit de kassa
-     * @return hoeveelheid geld in kassa
-     */
-    public double hoeveelheidGeldInKassa() {
-        return kassa.hoeveelheidGeldInKassa();
-    }
-         
-    /**
-     * Deze methode geeft het aantal gepasseerde artikelen.
-     * @return het aantal gepasseerde artikelen
-     */
-    public int aantalArtikelen(){
-        return kassa.aantalArtikelen();
-    }
         
+    /**
+     * getKassa
+     */
+    public Kassa getKassa(){
+        return kassa;      
+    } 
+    
     /**
      * Deze methode reset de bijgehouden telling van
      * het aantal artikelen

@@ -1,5 +1,4 @@
 /**
- * Write a description of class KantineSimulatie here.
  * This class simulates a few days in a cantine. 
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
@@ -8,11 +7,13 @@
 
 public class KantineSimulatie {
     private Kantine kantine;
+    private Kassa kassa;
     /**
      * Constructor
      */
     public KantineSimulatie() {
         kantine=new Kantine();
+        kassa = kantine.getKassa();
     }
      
     /**
@@ -34,8 +35,8 @@ public class KantineSimulatie {
             System.out.println("*****************************************");
             System.out.println("Dag " + dag);
             System.out.println("Dagtotalen:");
-            System.out.println("Totaal in kassa: " + kantine.hoeveelheidGeldInKassa());
-            System.out.println("Totaal aantal artikelen: " + kantine.aantalArtikelen());
+            System.out.println("Totaal in kassa: " + kassa.hoeveelheidGeldInKassa());
+            System.out.println("Totaal aantal artikelen: " + kassa.aantalArtikelen());
             kantine.resetKassa();
        
             
@@ -43,5 +44,5 @@ public class KantineSimulatie {
             // toon dagtotalen (artikelen en geld in kassa)
             // reset de kassa voor de volgende dag
         }
-     }
+    }
 }
