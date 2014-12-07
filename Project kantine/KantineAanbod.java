@@ -3,7 +3,9 @@ import java.util.*;
 public class KantineAanbod {
     // interne opslag voorraad
     private HashMap<String, ArrayList<Artikel>> aanbod;
-   
+    private String[] artikelnaam;
+    private int[] hoeveelheid;
+    private double[] prijs;
     
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen,
@@ -13,6 +15,10 @@ public class KantineAanbod {
      */
     public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
+        this.artikelnaam = artikelnaam;
+        this.hoeveelheid = hoeveelheid;
+        this.prijs = prijs;
+                
     for(int i=0;i<artikelnaam.length;i++) 
         {
             ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
@@ -40,7 +46,7 @@ public class KantineAanbod {
         if (stapel==null) { 
             return null;
         }
-        if (stapel.size()==0)
+        if (stapel.size() == 100)
         {
            return null;
         }
@@ -48,7 +54,23 @@ public class KantineAanbod {
         {
             Artikel a=stapel.get(0);
             stapel.remove(0);
+            checkVoorraad();
             return a;
+        }
+    }
+    
+    /**
+     * checkVoorraad controleerd voor elk artikel of deze onder het bestelniveau is
+     * en vult deze bij als dit zo nodig is
+     */
+    private void checkVoorraad(){
+        for(int i = 0;i < artikelnaam.length; i++){
+            ArrayList<Artikel> artikelen = aanbod.get(artikelnaam[i]);
+            if(artikelen.size()<=100){
+                while(artikelen.size()<= hoeveelheid[i]){
+                   aanbod.get(artikelnaam[i]).add(new Artikel(artikelnaam[i], prijs[i]));
+                }
+            }
         }
     }
 
