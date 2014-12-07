@@ -8,6 +8,7 @@
 public class KantineSimulatie {
     private Kantine kantine;
     private Kassa kassa;
+    private KantineAanbod kantineAanbod;
     /**
      * Constructor
      */
@@ -44,5 +45,22 @@ public class KantineSimulatie {
             // toon dagtotalen (artikelen en geld in kassa)
             // reset de kassa voor de volgende dag
         }
+    }
+    
+    /**
+     * @return kantineaanbod
+     */
+    private KantineAanbod getKantineAanbod(){
+        return kantineAanbod; 
+    }
+    
+    /**
+     * set the stock of various articles
+     * @param String[] artikelnaam
+     * @param double[] prijs
+     * @param int[] hoeveelheid
+     */
+    public void setKantineAanbod(String[] artikel, double[] prijs, int[] hoeveelheid){
+        kantineAanbod = new KantineAanbod(artikel, prijs, hoeveelheid);
     }
 }

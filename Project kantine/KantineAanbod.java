@@ -13,7 +13,7 @@ public class KantineAanbod {
      */
     public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
-        for(int i=0;i<artikelnaam.length;i++) 
+    for(int i=0;i<artikelnaam.length;i++) 
         {
             ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
             for(int j=0;j<hoeveelheid[i];j++) 
@@ -24,7 +24,7 @@ public class KantineAanbod {
         }
     }
 
-    /**
+    /*
      * Private methode om de lijst van artikelen te krijgen op basis van de    
      * naam van het artikel. Retourneert null als artikel niet bestaat.
      */

@@ -10,12 +10,12 @@ public class Artikel
 {
     // instance variables - replace the example below with your own
     private String naam;
-    private int prijs;
+    private double prijs;
 
     /**
      * Constructor for objects of class Artikel
      */
-    public Artikel(String ArtikelNaam, int ArtikelPrijs)
+    public Artikel(String ArtikelNaam, double ArtikelPrijs)
     {
         // initialise instance variables
         naam = ArtikelNaam;
@@ -41,7 +41,7 @@ public class Artikel
     /**
      * Get ArtikelPrijs
      */
-    public int getArtikelPrijs()
+    public double getArtikelPrijs()
     {
         return prijs;
     }
