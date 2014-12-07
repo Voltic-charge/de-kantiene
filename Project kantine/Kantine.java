@@ -79,7 +79,7 @@ public class Kantine {
      * @param double[] prijs
      * @param int[] hoeveelheid
      */
-    public void setKantineAanbod(String[] artikel, double[] prijs, int[] hoeveelheid){
-        kantineAanbod = new KantineAanbod(artikel, prijs, hoeveelheid);
+    public void setKantineAanbod(KantineAanbod kantineAanbod){
+        this.kantineAanbod = kantineAanbod;
     }
 }
