@@ -102,13 +102,13 @@ public class KantineSimulatie {
         // for lus voor dagen
         for(int i=0;i<dagen;i++) {
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen= getRandomValue(IN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+            int aantalpersonen= getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
             // laat de personen maar komen...
             for(int j=0;j<aantalpersonen;j++) {
                 // maak persoon en dienblad aan, koppel ze
                 // bedenk hoeveel artikelen worden gepakt
                 Persoon persoon = new Persoon();
-                int aantalartikelen= getRandowValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
+                int aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
                                 
                 // genereer de “artikelnummers”, dit zijn indexen
                 // van de artikelnamen array
