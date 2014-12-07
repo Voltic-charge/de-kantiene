@@ -6,6 +6,8 @@
  */
 import java.util.*;
 public class KantineSimulatie {
+    // kassa
+    private Kassa kassa;
     // kantine
     private Kantine kantine;
     
@@ -45,6 +47,7 @@ public class KantineSimulatie {
     public KantineSimulatie(){
         kantine=new Kantine();
         random=new Random();
+        kassa = kantine.getKassa();
         int[] hoeveelheden=getRandomArray(
         AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
         kantineaanbod=new KantineAanbod(artikelnamen, artikelprijzen,
@@ -121,9 +124,19 @@ public class KantineSimulatie {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
-                loopPakSluitAan(persoon, artikelen);
+                kantine.loopPakSluitAan(persoon, artikelen);
             }
             // verwerk rij voor de kassa
+            
+            int dag = i + 1;
+            kantine.verwerkRijVoorKassa();
+            System.out.println("*****************************************");
+            System.out.println("Dag " + dag);
+            System.out.println("Dagtotalen:");
+            System.out.println("Totaal in kassa: " + kassa.hoeveelheidGeldInKassa());
+            System.out.println("Totaal aantal artikelen: " + kassa.aantalArtikelen());
+            System.out.println("Aantal bezoekers: " + aantalpersonen);
+            kantine.resetKassa();
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
             // reset de kassa voor de volgende dag

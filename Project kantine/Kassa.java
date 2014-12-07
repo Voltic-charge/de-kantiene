@@ -13,9 +13,9 @@ public class Kassa {
     /**
      * Constructor
      */
-    public Kassa(KassaRij kassarij) {
-        totaalGepasseerd = 0; 
-        totaalPrijs = 0;
+    public Kassa(KassaRij kassaRij) {
+        totaalGepasseerd = 5; 
+        totaalPrijs = 5;
     }
     
     /**
