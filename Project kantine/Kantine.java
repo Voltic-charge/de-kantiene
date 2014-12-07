@@ -7,6 +7,7 @@
 public class Kantine {
     private Kassa kassa;
     private KassaRij kassarij;
+    private KantineAanbod kantineAanbod;
     
     /**
      * Constructor
@@ -17,23 +18,28 @@ public class Kantine {
     }
          
     /**
-     * In deze methode wordt een Persoon en Dienblad
-     * gemaakt en aan elkaar
-     * gekoppeld. Maak twee Artikelen aan en plaats
-     * deze op het dienblad.
-     * Tenslotte sluit de Persoon zich aan bij de rij
-     * voor de kassa.
+     * In deze methode kiest een Persoon met een dienblad
+     * de artikelen in artikelnamen.
+     * @param persoon
+     * @artikelnamen
      */
-    public void loopPakSluitAan() {
-        Persoon persoon = new Persoon();
+     public void loopPakSluitAan(Persoon persoon, String[] artikelnamen) {
+        //Persoon persoon = new Persoon();
+        //Dienblad dienblad = new Dienblad();
+        //persoon.pakDienblad(dienblad);
+        //Artikel artikel1 = new Artikel("patat", 2);
+        //Artikel artikel2 = new Artikel("frikandel", 1);
+        //dienblad.voegToe(artikel1);
+        //dienblad.voegToe(artikel2);
+        //kassarij.sluitAchteraan(persoon);
+        
+        persoon = new Persoon();
         Dienblad dienblad = new Dienblad();
         persoon.pakDienblad(dienblad);
-        Artikel artikel1 = new Artikel("patat", 2);
-        Artikel artikel2 = new Artikel("frikandel", 1);
-        dienblad.voegToe(artikel1);
-        dienblad.voegToe(artikel2);
-        kassarij.sluitAchteraan(persoon);
-    }
+        for(String artikel : artikelnamen) {
+            dienblad.voegToe(kantineAanbod.getArtikel(artikel));
+        }        
+     } 
         
     /**
      * Deze methode handelt de rij voor de kassa af.
