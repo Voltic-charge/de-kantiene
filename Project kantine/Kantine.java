@@ -31,14 +31,14 @@ public class Kantine {
         //Artikel artikel2 = new Artikel("frikandel", 1);
         //dienblad.voegToe(artikel1);
         //dienblad.voegToe(artikel2);
-        //kassarij.sluitAchteraan(persoon);
-        
+                
         persoon = new Persoon();
         Dienblad dienblad = new Dienblad();
         persoon.pakDienblad(dienblad);
         for(String artikel : artikelnamen) {
             dienblad.voegToe(kantineAanbod.getArtikel(artikel));
-        }        
+        } 
+        kassarij.sluitAchteraan(persoon);
      } 
         
     /**
