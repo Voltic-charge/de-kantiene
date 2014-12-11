@@ -3,7 +3,7 @@ import java.util.LinkedList;
  * This class is a LinkedList where you can store people in with the principle FIFO.
  * 
  * @author (Jeroen Bakker & Bas de Ruiter) 
- * @version (v1.)
+ * @version (v2.0)
  */
 public class KassaRij
 {

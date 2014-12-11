@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * Deze methode simuleert eigenlijk de voorraad van een winkel
+ * Het houdt de voorraad bij en vuld deze zo nodig bij.
+ * @author (Jeroen Bakker & Bas de Ruiter)
+ * @version (2.0)
+ */
 public class KantineAanbod {
     // interne opslag voorraad
     private HashMap<String, ArrayList<Artikel>> aanbod;
@@ -19,7 +25,7 @@ public class KantineAanbod {
         this.hoeveelheid = hoeveelheid;
         this.prijs = prijs;
                 
-    for(int i=0;i<artikelnaam.length;i++) 
+        for(int i=0;i<artikelnaam.length;i++) 
         {
             ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
             for(int j=0;j<hoeveelheid[i];j++) 

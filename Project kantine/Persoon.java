@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * This class makes an object with all the information you need for a person
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
- * @version (v.1)
+ * @version (v2.0)
  */
 public class Persoon
 {

@@ -3,19 +3,21 @@ import java.util.Iterator;
  * This class creates a kassa.
  * 
  * @author (Jeroen Bakker & Bas de Ruiter) 
- * @version (v1)
+ * @version (v2.0)
  */
 public class Kassa {
     private double totaalPrijs;
     private int totaalGepasseerd;
-    private Iterator<Artikel> artikelen;
+    private int afrekenTeller;
+    //private Iterator<Artikel> artikelen;
     
     /**
      * Constructor
      */
     public Kassa(KassaRij kassaRij) {
-        totaalGepasseerd = 5; 
-        totaalPrijs = 5;
+        totaalGepasseerd = 0; 
+        totaalPrijs = 0;
+        afrekenTeller = 0;
     }
     
     /**
@@ -28,15 +30,16 @@ public class Kassa {
         int aantalArtikelen = 0;
         double teBetalen = 0;
         Dienblad dienblad = getDienblad(persoon);
-        this.artikelen = dienblad.getDienblad();
+        Iterator<Artikel> artikelen = dienblad.getIterator();
         while(artikelen.hasNext()){
-            Artikel artikel = this.artikelen.next();
+            Artikel artikel = artikelen.next();
             teBetalen += artikel.getArtikelPrijs();
             aantalArtikelen++;
         }
 
-        totaalPrijs += teBetalen;
-        totaalGepasseerd += aantalArtikelen;
+        this.totaalPrijs += teBetalen;
+        this.totaalGepasseerd += aantalArtikelen;
+        this.afrekenTeller++;
          
         //System.out.println("############################################");
         //System.out.println("KASSABON"); 
@@ -61,7 +64,7 @@ public class Kassa {
      * @return aantal artikelen
      */
     public int aantalArtikelen() {
-        return totaalGepasseerd;    
+        return this.totaalGepasseerd;    
     }
      
     /**
@@ -72,7 +75,14 @@ public class Kassa {
      * @return hoeveelheid geld in de kassa
      */
     public double hoeveelheidGeldInKassa() {
-        return totaalPrijs;
+        return this.totaalPrijs;
+    }
+    
+    /**
+     * geef aantal keren dat is afgerekend
+     */
+    public int geefAfrekenTeller(){
+        return this.afrekenTeller;
     }
     
     /**
@@ -80,8 +90,22 @@ public class Kassa {
      * de totale hoeveelheid geld in de kassa.
      */
     public void resetKassa() {
-        totaalGepasseerd = 0;
-        totaalPrijs = 0;
+        this.totaalGepasseerd = 0;
+        this.totaalPrijs = 0;
+        this.afrekenTeller = 0;
+    }
+    
+    /**
+     * print informatie over de kassa, hoe vaak is er afgerekend? 
+     * Wat is het kastotaal
+     * @param dag
+     */
+    public void getKassaInfo(int dag){
+        System.out.println("*****************************************");
+        System.out.println("Dag " + dag);
+        System.out.println("Totaal in kassa: " + this.totaalPrijs);
+        System.out.println("Totaal aantal artikelen: " + this.totaalGepasseerd);
+        System.out.println("Aantal bezoekers: " + this.afrekenTeller);
     }
 }
  

@@ -4,7 +4,7 @@
  * This class creates objects with a name and a price. 
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
- * @version (v.1)
+ * @version (v2.0)
  */
 public class Artikel
 {

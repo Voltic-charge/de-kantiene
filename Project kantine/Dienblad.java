@@ -4,7 +4,7 @@ import java.util.Iterator;
  * This class creates an object with a stack were you can store youre acticles
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
- * @version (v1)
+ * @version (v2.0)
  */
 public class Dienblad {
     private Stack<Artikel> artikelen;
@@ -25,7 +25,7 @@ public class Dienblad {
     /**
      * @return Stack artikelen
      */
-    public Iterator getDienblad(){
+    public Iterator getIterator(){
         Iterator artikelen = this.artikelen.iterator();
         
             

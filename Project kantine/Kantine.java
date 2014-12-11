@@ -1,8 +1,8 @@
 /**
- * This class simulates a kantine with a cash register, a row, and methods for people to get in line
+ * Deze klasse simuleert een kantine met een kasse, rij, en een methode die er voor zorgt dat mensen in een rij kunnen gaan staan.
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
- * @version (v1)
+ * @version (v2.0)
  */
 public class Kantine {
     private Kassa kassa;

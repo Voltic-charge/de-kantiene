@@ -1,10 +1,10 @@
+import java.util.*;
 /**
  * This class simulates a few days in a cantine. 
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
  * @version (v2.)
  */
-import java.util.*;
 public class KantineSimulatie {
     // kassa
     private Kassa kassa;
