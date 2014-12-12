@@ -114,6 +114,7 @@ public class KantineSimulatie {
         double[] omzet = new double[dagen];
         double[] temp = new double[6];
         int index = 0;
+        int index0 = 0;
         for(int i=0;i<dagen;i++) {
             // bedenk hoeveel personen vandaag binnen lopen
             //int aantalpersonen= getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
@@ -135,7 +136,7 @@ public class KantineSimulatie {
             
             for(int j=0;j<AANTAL_DOCENTEN;j++) {
                 Integer nummer = j + 1;
-                Persoon persoon = new Docent(nummer.toString(), "HEBL");
+                Persoon persoon = new Docent("ict", "DOC");
                 int aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
                
                 int[] tepakken=getRandomArray(aantalartikelen, 0,
@@ -175,6 +176,7 @@ public class KantineSimulatie {
             System.out.println("Aantal bezoekers: " + kassa.geefAfrekenTeller());
             aantal[index] = kassa.aantalArtikelen();
             omzet[index] = kassa.hoeveelheidGeldInKassa();
+            index++;
             kantine.resetKassa();
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
@@ -182,12 +184,38 @@ public class KantineSimulatie {
         }
         
         System.out.println("*****************************************");
-        System.out.println("Periode gemiddeldes van:" + dagen + " dagen");
-        System.out.println("Gemmiddeld aantal producten per dag: " + Administratie.berekenGemiddeldeAantal(aantal));
-        System.out.println("Gemmiddeld omzet per dag: " + Administratie.berekenGemiddeldeOmzet(omzet));
-        //temp = Administratie.berekenDagOmzet(omzet);
-        //for(double dagGemiddelde : temp){
-            
+        System.out.println("Periode gemiddeldes van: " + dagen + " dagen");
+        System.out.println("Gemmiddelde aantal producten per dag: " + Administratie.berekenGemiddeldeAantal(aantal));
+        System.out.println("Gemmiddelde omzet per dag: " + Administratie.berekenGemiddeldeOmzet(omzet));
+        System.out.println("Omzet per dag in de week");
+        temp = Administratie.berekenDagOmzet(omzet);
         
+        for(double dagGemiddelde : temp){
+            switch(index0)
+            {
+                case 0:
+                System.out.println("Maandag: " + dagGemiddelde);
+                break;
+                case 1:
+                System.out.println("Dinsdag: " + dagGemiddelde);
+                break;
+                case 2:
+                System.out.println("Woensdag: " + dagGemiddelde);
+                break;
+                case 3:
+                System.out.println("Donderdag: " + dagGemiddelde);
+                break;
+                case 4:
+                System.out.println("Vrijdag: " + dagGemiddelde);
+                break;
+                case 5:
+                System.out.println("Zaterdag: " + dagGemiddelde);
+                break;
+                case 6:
+                System.out.println("Zondag: " + dagGemiddelde);
+                break;
+            }
+            index0++;            
+        }          
     }
 }
