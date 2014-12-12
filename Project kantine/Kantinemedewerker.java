@@ -16,6 +16,7 @@ public class Kantinemedewerker extends Persoon
      */
     public Kantinemedewerker(String medewerkersNummer, boolean isKassaBevoegd)
     {
+        super();
         this.medewerkersNummer = medewerkersNummer;
         this.isKassaBevoegd = isKassaBevoegd;
     }

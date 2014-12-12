@@ -16,6 +16,7 @@ public class Student extends Persoon
      */
     public Student(String studentNummer, String studieRichting)
     {
+        super();
         this.studentNummer = studentNummer;
         this.studieRichting = studieRichting;
     }

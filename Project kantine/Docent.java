@@ -16,6 +16,7 @@ public class Docent extends Persoon
      */
     public Docent(String afdeling, String afkorting)
     {
+        super();
         this.afdeling = afdeling;
         this.afkorting = afkorting;
     }
