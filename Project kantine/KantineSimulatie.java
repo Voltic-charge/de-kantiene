@@ -16,7 +16,7 @@ public class KantineSimulatie {
     
     // random generator
     private Random random;
-    
+        
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN=4;
     // aantal studenten
@@ -109,6 +109,11 @@ public class KantineSimulatie {
      */
     public void simuleer(int dagen) {
         // for lus voor dagen
+        
+        int[] aantal = new int[dagen];
+        double[] omzet = new double[dagen];
+        double[] temp = new double[6];
+        int index = 0;
         for(int i=0;i<dagen;i++) {
             // bedenk hoeveel personen vandaag binnen lopen
             //int aantalpersonen= getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
@@ -168,10 +173,21 @@ public class KantineSimulatie {
             System.out.println("Totaal in kassa: " + kassa.hoeveelheidGeldInKassa());
             System.out.println("Totaal aantal artikelen: " + kassa.aantalArtikelen());
             System.out.println("Aantal bezoekers: " + kassa.geefAfrekenTeller());
+            aantal[index] = kassa.aantalArtikelen();
+            omzet[index] = kassa.hoeveelheidGeldInKassa();
             kantine.resetKassa();
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
             // reset de kassa voor de volgende dag
         }
+        
+        System.out.println("*****************************************");
+        System.out.println("Periode gemiddeldes van:" + dagen + " dagen");
+        System.out.println("Gemmiddeld aantal producten per dag: " + Administratie.berekenGemiddeldeAantal(aantal));
+        System.out.println("Gemmiddeld omzet per dag: " + Administratie.berekenGemiddeldeOmzet(omzet));
+        //temp = Administratie.berekenDagOmzet(omzet);
+        //for(double dagGemiddelde : temp){
+            
+        
     }
 }

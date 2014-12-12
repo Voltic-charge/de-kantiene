@@ -24,7 +24,7 @@ public class Administratie
      * @param aantal
      * @return het gemiddelde
      */
-    public static double berekenGemiddeldAantal(int[] aantal) {
+    public static double berekenGemiddeldeAantal(int[] aantal) {
         int teller = 0;
         double totaal = 0;
         if(aantal.length > 0){
