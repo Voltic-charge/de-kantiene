@@ -20,6 +20,18 @@ public class Kantinemedewerker extends Persoon
         this.medewerkersNummer = medewerkersNummer;
         this.isKassaBevoegd = isKassaBevoegd;
     }
+    
+    /**
+     * Constructor for objects of class Kantinemedewerker
+     */
+    public Kantinemedewerker(String medewerkersNummer, boolean isKassaBevoegd,
+                             String bsn, String voornaam, String achternaam, 
+                             int dag, int maand, int jaar, char geslacht)
+    {
+        super(bsn, voornaam, achternaam, dag, maand, jaar, geslacht);
+        this.medewerkersNummer = medewerkersNummer;
+        this.isKassaBevoegd = isKassaBevoegd;
+    }
 
     /**
      * set medewerkersNummer

@@ -20,6 +20,18 @@ public class Docent extends Persoon
         this.afdeling = afdeling;
         this.afkorting = afkorting;
     }
+    
+    /**
+     * Constructor for objects of class Docent
+     */
+    public Docent(String afdeling, String afkorting,
+                  String bsn, String voornaam, String achternaam, 
+                  int dag, int maand, int jaar, char geslacht)
+   {
+        super(bsn, voornaam, achternaam, dag, maand, jaar, geslacht);
+        this.afdeling = afdeling;
+        this.afkorting = afkorting;
+    }
 
     /**
      * set afdeling

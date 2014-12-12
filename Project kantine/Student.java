@@ -20,6 +20,18 @@ public class Student extends Persoon
         this.studentNummer = studentNummer;
         this.studieRichting = studieRichting;
     }
+    
+    /**
+     * Constructor for objects of class Student
+     */
+    public Student(String studentNummer, String studieRichting,
+                   String bsn, String voornaam, String achternaam, 
+                   int dag, int maand, int jaar, char geslacht)
+    {
+        super(bsn, voornaam, achternaam, dag, maand, jaar, geslacht);
+        this.studentNummer = studentNummer;
+        this.studieRichting = studieRichting;
+    }
 
     /**
      * set studentNummer
