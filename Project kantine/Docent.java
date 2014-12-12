@@ -66,6 +66,17 @@ public class Docent extends Persoon
      */
     public String getAfkorting()
     {
-        return this.afdeling;
+        return this.afkorting;
+    }
+    
+    /**
+     * druk docentgegevens af
+     */
+    public void drukAf()
+    {
+        System.out.println("############################################");
+        System.out.println("Afkorting: "+ this.afkorting);
+        System.out.println("Afdeling "+ this.afdeling);
+        System.out.println("############################################");
     }
 }

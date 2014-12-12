@@ -69,4 +69,14 @@ public class Student extends Persoon
         return this.studieRichting;
     }
     
+    /**
+     * druk studentgegevens af
+     */
+    public void drukAf()
+    {
+        System.out.println("############################################");
+        System.out.println("Studentnummer: "+ this.studentNummer);
+        System.out.println("StudieRichting: "+ this.studieRichting);
+        System.out.println("############################################");
+    }
 }
