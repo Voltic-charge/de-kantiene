@@ -75,8 +75,8 @@ public class Student extends Persoon
     public void drukAf()
     {
         System.out.println("############################################");
+        System.out.println("Student");
         System.out.println("Studentnummer: "+ this.studentNummer);
         System.out.println("StudieRichting: "+ this.studieRichting);
-        System.out.println("############################################");
     }
 }

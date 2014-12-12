@@ -19,6 +19,12 @@ public class KantineSimulatie {
     
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN=4;
+    // aantal studenten
+    private static final int AANTAL_STUDENTEN=89;
+    // aantal docenten
+    private static final int AANTAL_DOCENTEN=10;
+    // aantal kantinemedewerkers
+    private static final int AANTAL_KANTINEMEDEWERKERS=1;
     
     // artikelen
     private static final String[] artikelnamen=
@@ -105,27 +111,53 @@ public class KantineSimulatie {
         // for lus voor dagen
         for(int i=0;i<dagen;i++) {
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen= getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+            //int aantalpersonen= getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
             // laat de personen maar komen...
-            for(int j=0;j<aantalpersonen;j++) {
-                // maak persoon en dienblad aan, koppel ze
-                // bedenk hoeveel artikelen worden gepakt
-                Persoon persoon = new Persoon();
+            for(int j=0;j<AANTAL_STUDENTEN;j++) {
+                Integer nummer = j + 1;
+                Persoon persoon = new Student(nummer.toString(), "ict");
                 int aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
-                                
-                // genereer de “artikelnummers”, dit zijn indexen
-                // van de artikelnamen array
+               
                 int[] tepakken=getRandomArray(aantalartikelen, 0,
                 AANTAL_ARTIKELEN-1);
                 
-                // vind de artikelnamen op basis van
-                // de indexen hierboven
+                persoon.drukAf();
+                
                 String[] artikelen=geefArtikelNamen(tepakken);
 
-                // loop de kantine binnen, pak de gewenste
-                // artikelen, sluit aan
                 kantine.loopPakSluitAan(persoon, artikelen);
             }
+            
+            for(int j=0;j<AANTAL_DOCENTEN;j++) {
+                Integer nummer = j + 1;
+                Persoon persoon = new Docent(nummer.toString(), "HEBL");
+                int aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
+               
+                int[] tepakken=getRandomArray(aantalartikelen, 0,
+                AANTAL_ARTIKELEN-1);
+                
+                persoon.drukAf();
+                
+                String[] artikelen=geefArtikelNamen(tepakken);
+
+                kantine.loopPakSluitAan(persoon, artikelen);
+            }
+            
+            for(int j=0;j<AANTAL_KANTINEMEDEWERKERS;j++) {
+                Integer nummer = j + 1;
+                Persoon persoon = new Kantinemedewerker(nummer.toString(), true);
+                int aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
+               
+                int[] tepakken=getRandomArray(aantalartikelen, 0,
+                AANTAL_ARTIKELEN-1);
+                
+                persoon.drukAf();
+                
+                String[] artikelen=geefArtikelNamen(tepakken);
+
+                kantine.loopPakSluitAan(persoon, artikelen);
+            }
+            
             // verwerk rij voor de kassa
             
             int dag = i + 1;
@@ -135,7 +167,7 @@ public class KantineSimulatie {
             System.out.println("Dagtotalen:");
             System.out.println("Totaal in kassa: " + kassa.hoeveelheidGeldInKassa());
             System.out.println("Totaal aantal artikelen: " + kassa.aantalArtikelen());
-            System.out.println("Aantal bezoekers: " + aantalpersonen);
+            System.out.println("Aantal bezoekers: " + kassa.geefAfrekenTeller());
             kantine.resetKassa();
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen

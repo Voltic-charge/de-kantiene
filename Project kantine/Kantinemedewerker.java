@@ -79,8 +79,8 @@ public class Kantinemedewerker extends Persoon
     public void drukAf()
     {
         System.out.println("############################################");
+        System.out.println("Kantinemedewerker");
         System.out.println("Medewerkersnummer: "+ this.medewerkersNummer);
         System.out.println("Kassabevoegd? "+ this.isKassaBevoegd);
-        System.out.println("############################################");
     }
 }
