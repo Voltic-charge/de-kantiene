@@ -277,6 +277,6 @@ public class Persoon
      */
     public Dienblad getDienblad(){
         return this.dienblad;
-    }
+    }        
 }
 

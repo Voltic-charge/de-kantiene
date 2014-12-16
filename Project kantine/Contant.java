@@ -9,8 +9,14 @@ public class Contant extends Betaalwijze
 {
     /**
      * Methode om betaling af te handelen
+     * @param tebetalen
      */
     public boolean betaal(double tebetalen) {
-        // omitted
+        if(tebetalen > this.saldo){
+            return false;
+        }else {
+            this.saldo -= tebetalen;
+            return true;
+        }
     }   
 }
