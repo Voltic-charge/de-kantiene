@@ -72,11 +72,12 @@ public class Student extends Persoon
     /**
      * druk studentgegevens af
      */
-    public void drukAf()
+    public String toString()
     {
-        System.out.println("############################################");
-        System.out.println("Student");
-        System.out.println("Studentnummer: "+ this.studentNummer);
-        System.out.println("StudieRichting: "+ this.studieRichting);
+        return
+        "############################################" + "\n" +
+        "Student" + "\n" +
+        "Studentnummer: " + this.studentNummer + "\n" +
+        "Studierichting: " + this.studieRichting;
     }
 }

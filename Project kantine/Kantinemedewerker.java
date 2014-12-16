@@ -76,11 +76,13 @@ public class Kantinemedewerker extends Persoon
     /**
      * druk kantinemedewerkers gegevens af
      */
-    public void drukAf()
+    public String toString()
     {
-        System.out.println("############################################");
-        System.out.println("Kantinemedewerker");
-        System.out.println("Medewerkersnummer: "+ this.medewerkersNummer);
-        System.out.println("Kassabevoegd? "+ this.isKassaBevoegd);
+        return
+        "############################################" + "\n" +
+        "Kantinemedewerker" + "\n" +
+        //super.toString() + "\n" +
+        "Medewerkersnummer: " + this.medewerkersNummer + "\n" +
+        "isKassaBevoegd: " + this.isKassaBevoegd;
     }
 }

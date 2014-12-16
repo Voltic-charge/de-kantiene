@@ -29,7 +29,7 @@ public class Persoon
         this.geslacht = geslacht;
         dienblad = null;
     }
-    
+
     /**
      * Constructor for objects of class Persoon
      * onderdeel van opgave 1 leertaakweek 2
@@ -40,7 +40,6 @@ public class Persoon
         this.jaar = 0;
         this.geslacht = 'm';
     }
-        
 
     /**
      * Set BSN
@@ -49,7 +48,7 @@ public class Persoon
     {
         this.bsn = bsn;
     }
-    
+
     /**
      * Set Voornaam
      */
@@ -57,7 +56,7 @@ public class Persoon
     {
         this.voornaam = voornaam;
     }
-    
+
     /**
      * Set Achternaam
      */
@@ -65,87 +64,87 @@ public class Persoon
     {
         this.achternaam = achternaam;
     }
-    
+
     /**
      * Set Geboortejaar
      */
     public void setGeboorteDatum(int dag, int maand, int jaar)
     {
-       if(dag >= 0 && maand >= 1 && maand <= 12 && jaar >= 1900 && jaar <=2100)
-       {
-           switch(maand)
-           {
-               case 1:
-               case 3:
-               case 5:
-               case 7:
-               case 8:
-               case 10:
-               case 12:
-               if(dag > 31){
-                   System.out.println("Dag/maand combinatie bestaat niet!");
-                   this.dag = 0;
-                   this.maand = 0;
-                   this.jaar = 0;
+        if(dag >= 0 && maand >= 1 && maand <= 12 && jaar >= 1900 && jaar <=2100)
+        {
+            switch(maand)
+            {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                if(dag > 31){
+                    System.out.println("Dag/maand combinatie bestaat niet!");
+                    this.dag = 0;
+                    this.maand = 0;
+                    this.jaar = 0;
                 }else
                 {
                     this.dag = dag;
                     this.maand = maand;
                     this.jaar = jaar;               
                 }
-               break;
-           
-               case 2:
-               boolean IsSchrikkelJaar  = ((jaar % 4 == 0) && (jaar % 100 != 0) || (jaar % 400 == 0));
-               // boolean is true als newJaar = schikkeljaar.
-               if(IsSchrikkelJaar){
-                   if(dag > 29){
-                       System.out.println("Dag/maand combinatie bestaat niet!");
-                       this.dag = 0;
-                       this.maand = 0;
-                       this.jaar = 0;
-                   }else{
-                       this.dag = dag;
-                       this.maand = maand;
-                       this.jaar = jaar; 
-                   }                   
-               }else{
-                   if(dag > 28){
-                       System.out.println("Dag/maand combinatie bestaat niet!");
-                       this.dag = 0;
-                       this.maand = 0;
-                       this.jaar = 0;
-                   }else{
-                       this.dag = dag;
-                       this.maand = maand;
-                       this.jaar = jaar; 
-                   }
-               }
-               break;
-           
+                break;
+
+                case 2:
+                boolean IsSchrikkelJaar  = ((jaar % 4 == 0) && (jaar % 100 != 0) || (jaar % 400 == 0));
+                // boolean is true als newJaar = schikkeljaar.
+                if(IsSchrikkelJaar){
+                    if(dag > 29){
+                        System.out.println("Dag/maand combinatie bestaat niet!");
+                        this.dag = 0;
+                        this.maand = 0;
+                        this.jaar = 0;
+                    }else{
+                        this.dag = dag;
+                        this.maand = maand;
+                        this.jaar = jaar; 
+                    }                   
+                }else{
+                    if(dag > 28){
+                        System.out.println("Dag/maand combinatie bestaat niet!");
+                        this.dag = 0;
+                        this.maand = 0;
+                        this.jaar = 0;
+                    }else{
+                        this.dag = dag;
+                        this.maand = maand;
+                        this.jaar = jaar; 
+                    }
+                }
+                break;
+
                 case 4:
                 case 6:
                 case 9:
                 case 11:
-               if(dag > 30){
-                   System.out.println("Dag/maand combinatie bestaat niet!");
-                   this.dag = 0;
-                   this.maand = 0;
-                   this.jaar = 0;
-               }else
-               {
-                   this.dag = dag;
-                   this.maand = maand;
-                   this.jaar = jaar;
-               }     
-               break;
+                if(dag > 30){
+                    System.out.println("Dag/maand combinatie bestaat niet!");
+                    this.dag = 0;
+                    this.maand = 0;
+                    this.jaar = 0;
+                }else
+                {
+                    this.dag = dag;
+                    this.maand = maand;
+                    this.jaar = jaar;
+                }     
+                break;
             }
-       }else
-       {
-           System.out.println("De ingevoerde geboortedatum is ongeldig!!!");
-       }  
+        }else
+        {
+            System.out.println("De ingevoerde geboortedatum is ongeldig!!!");
+        }  
     }
-    
+
     /**
      * set Geslacht
      */
@@ -160,7 +159,7 @@ public class Persoon
             this.geslacht = geslacht;
         }
     }
-   
+
     /**
      * Getter voor geboortedatum
      * @return Geboortedatum 
@@ -174,7 +173,7 @@ public class Persoon
         }
         return temp;
     }
-   
+
     /**
      * get burgerservice nummer
      */
@@ -189,12 +188,13 @@ public class Persoon
             return temp;
         }
     }
+
     /**
      * get geslacht
      */
     public String getGeslacht(){
         String temp;
-        switch(geslacht) {
+        switch(this.geslacht) {
             case 'v':
             temp = "vrouw";
             break;
@@ -207,7 +207,7 @@ public class Persoon
         }
         return temp;
     }
-   
+
     /**
      * get voornaam
      * return voornaam
@@ -216,7 +216,7 @@ public class Persoon
     {
         return voornaam;
     }
-   
+
     /**
      * get achternaam
      * return achternaam
@@ -225,27 +225,45 @@ public class Persoon
     {
         return achternaam;
     }
-   
+
     /**
      * get gegevens
      * print alle gegevens van de persoon
      */
-    public void drukAf()
+    public String toString2()
     {
-        System.out.println("############################################");
-        System.out.println("Voornaam: "+ voornaam);
-        System.out.println("Achternaam: "+ achternaam);
-        System.out.println("Burgerservicenummer: "+ bsn);
-        System.out.println("Geboortedatum: "+ dag + "/" + maand + "/" + jaar);
-        if(geslacht == 'v'){
-            System.out.println("Geslacht: vrouw");
-        }
-        if(geslacht == 'm'){
-            System.out.println("Geslacht: man");
-        }
-        System.out.println("############################################");
+        return 
+        "Voornaam: " + this.voornaam + "\n" +
+        "Achternaam: " + this.achternaam + "\n" +
+        "BSN: " + this.bsn + "\n" +
+        "Geslacht: " + getGeslacht() + "\n" +
+        "Geboortedatum: " + dag + "/" + maand + "/" + jaar;
     }
-   
+
+    /**
+     * vergelijk twee objecten met elkaar
+     * @param object
+     * @return boolean
+     */
+    public boolean equals(Object object)
+    {
+        if(object == null){
+            return false;
+        }
+        if(object == this){
+            return true;
+        }
+        if(!(object instanceof Persoon)) {
+            return false;            
+        }
+        Persoon p = (Persoon) object;
+        return (getVoornaam().equals(p.getVoornaam()) && 
+                getAchternaam().equals(p.getAchternaam()) &&
+                getGeslacht().equals(p.getGeslacht()) &&
+                getBSN().equals(p.getBSN()) &&
+                getGeboorteDatum().equals(p.getGeboorteDatum()));
+    }
+
     /**
      * Methode om dienblad te koppelen aan een persoon
      * @param dienblad
@@ -253,7 +271,7 @@ public class Persoon
     public void pakDienblad(Dienblad dienblad) {
         this.dienblad = dienblad; 
     }
-        
+
     /**
      * methode die er voor zorgt dat je dit dienblad(van dit specifiek persoon) kan terughalen in andere klassen.
      */
@@ -261,4 +279,4 @@ public class Persoon
         return this.dienblad;
     }
 }
- 
+

@@ -25,9 +25,9 @@ public class Docent extends Persoon
      * Constructor for objects of class Docent
      */
     public Docent(String afdeling, String afkorting,
-                  String bsn, String voornaam, String achternaam, 
-                  int dag, int maand, int jaar, char geslacht)
-   {
+                   String bsn, String voornaam, String achternaam, 
+                   int dag, int maand, int jaar, char geslacht)
+    {
         super(bsn, voornaam, achternaam, dag, maand, jaar, geslacht);
         this.afdeling = afdeling;
         this.afkorting = afkorting;
@@ -48,7 +48,7 @@ public class Docent extends Persoon
      */
     public void setAfkorting(String afkorting)
     {
-        this.afkorting= afkorting;
+       this.afkorting= afkorting;
     }
     
     /**
@@ -72,11 +72,13 @@ public class Docent extends Persoon
     /**
      * druk docentgegevens af
      */
-    public void drukAf()
+    public String toString()
     {
-        System.out.println("############################################");
-        System.out.println("Docent");
-        System.out.println("Afkorting: "+ this.afkorting);
-        System.out.println("Afdeling "+ this.afdeling);
+        return
+        "############################################" + "\n" +
+        "Docent" + "\n" +
+        //super.toString() + "\n" +
+        "Afkorting: " + this.afkorting + "\n" +
+        "Afdeling " + this.afdeling;
     }
 }
