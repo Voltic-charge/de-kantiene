@@ -279,6 +279,7 @@ public class Persoon
      */
     public Dienblad getDienblad(){
         return this.dienblad;
+<<<<<<< HEAD
     }
     
     /**
@@ -300,5 +301,8 @@ public class Persoon
     public Betaalwijze getBetaalwijze(){
         return betaalwijze;
     }
+=======
+    }        
+>>>>>>> 71e25d6181bf29dba181491febe6b54e4b871385
 }
 
