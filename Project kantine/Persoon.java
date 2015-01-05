@@ -16,6 +16,8 @@ public class Persoon
     private int jaar;
     private char geslacht;
     private Dienblad dienblad;
+    private Betaalwijze betaalwijze;
+    private Pinpas pinpas;
 
     /**
      * Constructor for objects of class Persoon
@@ -277,6 +279,26 @@ public class Persoon
      */
     public Dienblad getDienblad(){
         return this.dienblad;
+    }
+    
+    /**
+     * Stel de betaalwijze in
+     * 
+     * @param saldo
+     */
+    
+    public void setBetaalwijze(double saldo){
+        betaalwijze.setSaldo(saldo);
+    }
+    
+    /**
+     * Retourneert de betaalwijze
+     * 
+     * @return betaalwijze
+     */
+    
+    public Betaalwijze getBetaalwijze(){
+        return betaalwijze;
     }
 }
 

@@ -81,4 +81,24 @@ public class Docent extends Persoon
         "Afkorting: " + this.afkorting + "\n" +
         "Afdeling " + this.afdeling;
     }
+    /**
+     * methode om kortingspercentage op te vragen
+     */
+    public double geefKortingsPercentage(){
+        return 0.25;
+    }
+    
+    /**
+     * methode om op te vragen of er maximum per keer aan de korting zit
+     */
+    public boolean heeftMaximum(){
+        return true;
+    }
+    
+    /**
+     * methode om het maximum kortingsbedrag op te vragen
+     */
+    public double geefMaximum(){
+        return 1.00;
+    }
 }
