@@ -16,7 +16,7 @@ public class Persoon
     private int jaar;
     private char geslacht;
     private Dienblad dienblad;
-    private Betaalwijze betaalwijze;
+    private Betaalwijze betaalWijze;
     private Pinpas pinpas;
 
     /**
@@ -30,6 +30,7 @@ public class Persoon
         setGeboorteDatum(dag, maand, jaar);
         this.geslacht = geslacht;
         dienblad = null;
+        betaalWijze = new Contant();
     }
 
     /**
@@ -41,6 +42,7 @@ public class Persoon
         this.maand = 0;
         this.jaar = 0;
         this.geslacht = 'm';
+        betaalWijze = new Contant();
     }
 
     /**
@@ -232,7 +234,7 @@ public class Persoon
      * get gegevens
      * print alle gegevens van de persoon
      */
-    public String toString2()
+    public String toString()
     {
         return 
         "Voornaam: " + this.voornaam + "\n" +
@@ -279,7 +281,6 @@ public class Persoon
      */
     public Dienblad getDienblad(){
         return this.dienblad;
-<<<<<<< HEAD
     }
     
     /**
@@ -288,21 +289,40 @@ public class Persoon
      * @param saldo
      */
     
-    public void setBetaalwijze(double saldo){
-        betaalwijze.setSaldo(saldo);
+    public void setBetaalwijze(Betaalwijze betaalWijze){
+        this.betaalWijze = betaalWijze;
     }
     
     /**
      * Retourneert de betaalwijze
      * 
-     * @return betaalwijze
+     * @return betaalWijze
      */
     
     public Betaalwijze getBetaalwijze(){
-        return betaalwijze;
+        return betaalWijze;
     }
-=======
-    }        
->>>>>>> 71e25d6181bf29dba181491febe6b54e4b871385
+    
+    /**
+     * methode om kortingspercentage op te vragen
+     */
+    public double geefKortingsPercentage(){
+        return 0.0;
+    }
+    
+    /**
+     * methode om op te vragen of er maximum per keer aan de korting zit
+     */
+    public boolean heeftMaximum(){
+        return false;
+    }
+    
+    /**
+     * methode om het maximum kortingsbedrag op te vragen
+     */
+    public double geefMaximum(){
+        return 0.0;
+    }
 }
+
 

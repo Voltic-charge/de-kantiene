@@ -3,11 +3,19 @@
  * Klasse die de betaalwijze met pinpas voorsteld
  * 
  * @author (Jeroen Bakker & Bas de Ruiter) 
- * @version (v1.0)
+ * @version (06-01-2015)
  */
 public class Pinpas extends Betaalwijze {
     private double kredietlimiet;
-
+    
+    /**
+     * constructor of pinpas
+     * Wordt alleen gebruikt als test, voor het setten van een saldo
+     */
+    public Pinpas(){
+        this.saldo = 5.00;
+    }
+    
     /**
      * Methode om kredietlimiet te zetten
      * @param kredietlimiet

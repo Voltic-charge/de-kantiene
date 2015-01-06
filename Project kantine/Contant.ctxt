@@ -1,5 +1,8 @@
 #BlueJ class context
-comment0.params=tebetalen
-comment0.target=boolean\ betaal(double)
-comment0.text=\r\n\ Methode\ om\ betaling\ af\ te\ handelen\r\n\ @param\ tebetalen\r\n
-numComments=1
+comment0.params=
+comment0.target=Contant()
+comment0.text=\r\n\ constructor\ of\ contant\r\n\ Wordt\ alleen\ gebruikt\ als\ test,\ voor\ het\ setten\ van\ een\ saldo\r\n
+comment1.params=tebetalen
+comment1.target=boolean\ betaal(double)
+comment1.text=\r\n\ Methode\ om\ betaling\ af\ te\ handelen\r\n\ @param\ tebetalen\r\n
+numComments=2

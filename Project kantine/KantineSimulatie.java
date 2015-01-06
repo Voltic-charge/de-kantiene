@@ -1,9 +1,10 @@
 import java.util.*;
+import java.text.*;
 /**
  * This class simulates a few days in a cantine. 
  * 
  * @author (Bas de Ruiter & Jeroen Bakker) 
- * @version (v2.)
+ * @version (06-01-2015)
  */
 public class KantineSimulatie {
     // kassa
@@ -16,6 +17,9 @@ public class KantineSimulatie {
 
     // random generator
     private Random random;
+    
+    //afronden van getallen
+    private NumberFormat roundTwo = new DecimalFormat("#.00");
 
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN=4;
@@ -126,23 +130,25 @@ public class KantineSimulatie {
             for(int s=1;s<=aantalpersonen; s++){
                 int kans = getRandomValue(1, 100);
                 int aantalartikelen = 0;
-                Integer nummer = s + 1;
+                Integer nummer = s;
                 String[] artikelen = null;
                 int[] tepakken = null;
                 Persoon persoon = null;
                 if (kans >= 90 && kans <=  99){
-                    persoon = new Docent("ict", "DOC");                    
+                    persoon = new Docent("ict", "DOC");  
+                    aantaldocenten++;
                 }
                 if (kans >= 1 && kans <= 89){
                     persoon = new Student(nummer.toString(), "ict");
+                    aantalstudenten++;
                 }
                 if (kans == 100) {
                     persoon = new Kantinemedewerker(nummer.toString(), true);
+                    aantalkantinemedewerkers++;
                 }
                 aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
                 tepakken=getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
                 artikelen=geefArtikelNamen(tepakken);
-                System.out.println(persoon.toString());
                 kantine.loopPakSluitAan(persoon, artikelen);
             }
 
@@ -153,7 +159,7 @@ public class KantineSimulatie {
             System.out.println("*****************************************");
             System.out.println("Dag " + dag);
             System.out.println("Dagtotalen:");
-            System.out.println("Totaal in kassa: " + kassa.hoeveelheidGeldInKassa());
+            System.out.println("Totaal in kassa: " + roundTwo.format(kassa.hoeveelheidGeldInKassa()));
             System.out.println("Totaal aantal artikelen: " + kassa.aantalArtikelen());
             System.out.println("Aantal bezoekers: " + kassa.geefAfrekenTeller());
             System.out.println("aantal docenten" + aantaldocenten);
@@ -163,15 +169,15 @@ public class KantineSimulatie {
             omzet[index] = kassa.hoeveelheidGeldInKassa();
             index++;
             kantine.resetKassa();
-            // druk de dagtotalen af en hoeveel personen binnen
+            //druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
             // reset de kassa voor de volgende dag
         }
 
         System.out.println("*****************************************");
         System.out.println("Periode gemiddeldes van: " + dagen + " dagen");
-        System.out.println("Gemmiddelde aantal producten per dag: " + Administratie.berekenGemiddeldeAantal(aantal));
-        System.out.println("Gemmiddelde omzet per dag: " + Administratie.berekenGemiddeldeOmzet(omzet));
+        System.out.println("Gemmiddelde aantal producten per dag: " + roundTwo.format(Administratie.berekenGemiddeldeAantal(aantal)));
+        System.out.println("Gemmiddelde omzet per dag: " + roundTwo.format(Administratie.berekenGemiddeldeOmzet(omzet)));
         System.out.println("Omzet per dag in de week");
         temp = Administratie.berekenDagOmzet(omzet);
 
@@ -179,25 +185,25 @@ public class KantineSimulatie {
             switch(index0)
             {
                 case 0:
-                System.out.println("Maandag: " + dagGemiddelde);
+                System.out.println("Maandag: " + roundTwo.format(dagGemiddelde));
                 break;
                 case 1:
-                System.out.println("Dinsdag: " + dagGemiddelde);
+                System.out.println("Dinsdag: " + roundTwo.format(dagGemiddelde));
                 break;
                 case 2:
-                System.out.println("Woensdag: " + dagGemiddelde);
+                System.out.println("Woensdag: " + roundTwo.format(dagGemiddelde));
                 break;
                 case 3:
-                System.out.println("Donderdag: " + dagGemiddelde);
+                System.out.println("Donderdag: " + roundTwo.format(dagGemiddelde));
                 break;
                 case 4:
-                System.out.println("Vrijdag: " + dagGemiddelde);
+                System.out.println("Vrijdag: " + roundTwo.format(dagGemiddelde));
                 break;
                 case 5:
-                System.out.println("Zaterdag: " + dagGemiddelde);
+                System.out.println("Zaterdag: " + roundTwo.format(dagGemiddelde));
                 break;
                 case 6:
-                System.out.println("Zondag: " + dagGemiddelde);
+                System.out.println("Zondag: " + roundTwo.format(dagGemiddelde));
                 break;
             }
             index0++;            

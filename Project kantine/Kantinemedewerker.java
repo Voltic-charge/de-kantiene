@@ -5,11 +5,13 @@
  * @author (Jeroen Bakker & Bas de Ruiter) 
  * @version (v1.0)
  */
-public class Kantinemedewerker extends Persoon
+public class Kantinemedewerker extends Persoon implements KortingskaartHouder
 {
     // instance variables - replace the example below with your own
     private String medewerkersNummer;
     private boolean isKassaBevoegd;
+    private double korting;
+    private double maxKorting;
 
     /**
      * Constructor for objects of class Kantinemedewerker
@@ -19,6 +21,8 @@ public class Kantinemedewerker extends Persoon
         super();
         this.medewerkersNummer = medewerkersNummer;
         this.isKassaBevoegd = isKassaBevoegd;
+        this.korting = 35.0;
+        this.maxKorting = 0.0;
     }
     
     /**
@@ -90,7 +94,7 @@ public class Kantinemedewerker extends Persoon
      * methode om kortingspercentage op te vragen
      */
     public double geefKortingsPercentage(){
-        return 0.35;
+        return korting;
     }
     /** 
      * methode om op te vragen of er maximum per keer aan de korting zit
@@ -102,7 +106,9 @@ public class Kantinemedewerker extends Persoon
      * methode om het maximum kortingsbedrag op te vragen
      */
     public double geefMaximum(){
-        return 0.00;
+        return maxKorting;
     }
+    
+    
 
 }

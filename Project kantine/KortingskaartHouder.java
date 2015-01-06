@@ -1,9 +1,8 @@
 
 /**
- * Write a description of interface Kortingkaarthouder here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Jeroen Bakker en Bas de Ruiter) 
+ * @version (06-01-2015)
  */
 public interface KortingskaartHouder
 {

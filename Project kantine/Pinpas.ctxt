@@ -1,8 +1,11 @@
 #BlueJ class context
-comment0.params=kredietlimiet
-comment0.target=void\ setKredietLimiet(double)
-comment0.text=\r\n\ Methode\ om\ kredietlimiet\ te\ zetten\r\n\ @param\ kredietlimiet\r\n
-comment1.params=tebetalen
-comment1.target=boolean\ betaal(double)
-comment1.text=\r\n\ Methode\ om\ betaling\ af\ te\ handelen\r\n
-numComments=2
+comment0.params=
+comment0.target=Pinpas()
+comment0.text=\r\n\ constructor\ of\ pinpas\r\n\ Wordt\ alleen\ gebruikt\ als\ test,\ voor\ het\ setten\ van\ een\ saldo\r\n
+comment1.params=kredietlimiet
+comment1.target=void\ setKredietLimiet(double)
+comment1.text=\r\n\ Methode\ om\ kredietlimiet\ te\ zetten\r\n\ @param\ kredietlimiet\r\n
+comment2.params=tebetalen
+comment2.target=boolean\ betaal(double)
+comment2.text=\r\n\ Methode\ om\ betaling\ af\ te\ handelen\r\n
+numComments=3

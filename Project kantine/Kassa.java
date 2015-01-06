@@ -1,16 +1,17 @@
 import java.util.Iterator;
+import java.text.*;
 /**
  * This class creates a kassa.
  * 
  * @author (Jeroen Bakker & Bas de Ruiter) 
- * @version (v2.0)
+ * @version (06-01-2015)
  */
 public class Kassa {
     private double totaalPrijs;
     private int totaalGepasseerd;
     private int afrekenTeller;
-    //private Iterator<Artikel> artikelen;
-    
+    private NumberFormat roundTwo = new DecimalFormat("#.00");
+
     /**
      * Constructor
      */
@@ -19,7 +20,7 @@ public class Kassa {
         totaalPrijs = 0;
         afrekenTeller = 0;
     }
-    
+
     /**
      * vraag het aantal artikelen en de totaalprijs op.
      * De implementatie wordt later vervangen
@@ -28,8 +29,11 @@ public class Kassa {
      */
     public void rekenAf(Persoon persoon) {
         int aantalArtikelen = 0;
-        double teBetalen = 0;
+        double teBetalen = 0.0;
+        double prijs = 0.0;
+
         Dienblad dienblad = getDienblad(persoon);
+        Betaalwijze betaalWijze = persoon.getBetaalwijze();
         Iterator<Artikel> artikelen = dienblad.getIterator();
         while(artikelen.hasNext()){
             Artikel artikel = artikelen.next();
@@ -40,14 +44,41 @@ public class Kassa {
         this.totaalPrijs += teBetalen;
         this.totaalGepasseerd += aantalArtikelen;
         this.afrekenTeller++;
-         
-        //System.out.println("############################################");
-        //System.out.println("KASSABON"); 
-        //System.out.println("Te betalen: " + teBetalen + " euro");
-        //System.out.println("Aantal artikelen: " + aantalArtikelen); 
-        // System.out.println("############################################");
+
+        System.out.println(persoon.toString());
+        System.out.println("Te betalen: " + roundTwo.format(teBetalen) + " euro");
+        System.out.println("U heeft " + persoon.geefKortingsPercentage() + " procent korting");
+
+        if(persoon instanceof KortingskaartHouder){
+            if(persoon.heeftMaximum()){
+                if((persoon.geefKortingsPercentage() / 100) * teBetalen > persoon.geefMaximum()){
+                    prijs = teBetalen - persoon.geefMaximum();
+                }else{
+                    prijs = teBetalen - (persoon.geefKortingsPercentage() / 100) * teBetalen;
+                }
+            }else{
+                prijs = teBetalen - (persoon.geefKortingsPercentage() / 100) * teBetalen;
+            }
+            System.out.println("Te betalen na korting aftrek: " + roundTwo.format(prijs) + " euro"); 
+            betalingAfhandelen(persoon, prijs);
+        }else{
+            betalingAfhandelen(persoon, teBetalen);          
+        }       
     }
-    
+
+    /**
+     * afhandeling betaling
+     */
+    public void betalingAfhandelen(Persoon persoon,double teBetalen){
+        if(persoon.getBetaalwijze() != null){
+            if (persoon.getBetaalwijze().betaal(teBetalen)){
+                System.out.println("Bedankt! U heeft betaald.");
+            }else{
+                System.out.println("Betaling niet voltooid, u heeft te weinig geld!");
+            }
+        }
+    }
+
     /**
      * @return dienblad met de klasse Dienblad van een bepaald persoon
      */
@@ -55,7 +86,7 @@ public class Kassa {
         Dienblad dienblad = persoon.getDienblad();
         return dienblad;
     }
-     
+
     /**
      * Geeft het aantal artikelen dat de kassa
      * heeft gepasseerd,
@@ -66,7 +97,7 @@ public class Kassa {
     public int aantalArtikelen() {
         return this.totaalGepasseerd;    
     }
-     
+
     /**
      * Geeft het totaalbedrag van alle artikelen die
      * de kassa zijn gepasseerd, vanaf het moment dat de methode
@@ -77,14 +108,14 @@ public class Kassa {
     public double hoeveelheidGeldInKassa() {
         return this.totaalPrijs;
     }
-    
+
     /**
      * geef aantal keren dat is afgerekend
      */
     public int geefAfrekenTeller(){
         return this.afrekenTeller;
     }
-    
+
     /**
      * reset de waarden van het aantal gepasseerde artikelen en
      * de totale hoeveelheid geld in de kassa.
@@ -94,7 +125,7 @@ public class Kassa {
         this.totaalPrijs = 0;
         this.afrekenTeller = 0;
     }
-    
+
     /**
      * print informatie over de kassa, hoe vaak is er afgerekend? 
      * Wat is het kastotaal
@@ -108,4 +139,3 @@ public class Kassa {
         System.out.println("Aantal bezoekers: " + this.afrekenTeller);
     }
 }
- 
