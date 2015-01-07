@@ -96,19 +96,11 @@ public class Kantinemedewerker extends Persoon implements KortingskaartHouder
     public double geefKortingsPercentage(){
         return korting;
     }
-    /** 
-     * methode om op te vragen of er maximum per keer aan de korting zit
-     */
-    public boolean heeftMaximum(){
-        return false;
-    }
+    
     /**
      * methode om het maximum kortingsbedrag op te vragen
      */
     public double geefMaximum(){
         return maxKorting;
     }
-    
-    
-
 }

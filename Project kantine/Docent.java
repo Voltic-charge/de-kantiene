@@ -85,18 +85,12 @@ public class Docent extends Persoon implements KortingskaartHouder
         "Afkorting: " + this.afkorting + "\n" +
         "Afdeling " + this.afdeling;
     }
+    
     /**
      * methode om kortingspercentage op te vragen
      */
-    public double geefKortingsPercentage(){
+    public double geefKortingsPercentageee(){
         return korting;
-    }
-    
-    /**
-     * methode om op te vragen of er maximum per keer aan de korting zit
-     */
-    public boolean heeftMaximum(){
-        return true;
     }
     
     /**
