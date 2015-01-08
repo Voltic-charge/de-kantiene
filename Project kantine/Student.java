@@ -80,4 +80,11 @@ public class Student extends Persoon
         "Studentnummer: " + this.studentNummer + "\n" +
         "Studierichting: " + this.studieRichting;
     }
+    
+    /**
+     * @return studentNummer
+     */
+    public String getName(){
+        return "Student " + this.studentNummer;
+    }
 }

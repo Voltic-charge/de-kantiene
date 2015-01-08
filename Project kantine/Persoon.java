@@ -322,6 +322,13 @@ public class Persoon
      */
     public double geefMaximum(){
         return 0.0;
+    }    
+    
+    /**
+     * @return nummer
+     */
+    public String getName(){
+        return null;
     }
 }
 

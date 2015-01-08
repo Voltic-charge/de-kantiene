@@ -10,17 +10,19 @@ public class Docent extends Persoon implements KortingskaartHouder
     // instance variables - replace the example below with your own
     private String afdeling;
     private String afkorting;
+    private String docentNummer;
     private double korting;
     private double maxKorting;
 
     /**
      * Constructor for objects of class Docent
      */
-    public Docent(String afdeling, String afkorting)
+    public Docent(String afdeling, String afkorting, String docentNummer)
     {
         super();
         this.afdeling = afdeling;
         this.afkorting = afkorting;
+        this.docentNummer = docentNummer;
         this.korting = 25.0;
         this.maxKorting = 1.0;
     }
@@ -74,6 +76,13 @@ public class Docent extends Persoon implements KortingskaartHouder
     }
     
     /**
+     * @return docentNummer
+     */
+    public String getName(){
+        return "Docent " + this.docentNummer;
+    }
+    
+    /**
      * druk docentgegevens af
      */
     public String toString()
@@ -81,7 +90,7 @@ public class Docent extends Persoon implements KortingskaartHouder
         return
         "############################################" + "\n" +
         "Docent" + "\n" +
-        //super.toString() + "\n" +
+        "Docentnummer" + this.docentNummer + "\n" +         //super.toString() + "\n" +
         "Afkorting: " + this.afkorting + "\n" +
         "Afdeling " + this.afdeling;
     }

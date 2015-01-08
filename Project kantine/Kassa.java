@@ -79,7 +79,8 @@ public class Kassa {
                 System.out.println("Bedankt! U heeft betaald.");
             }
             catch(Exception e){
-                System.out.println(e);
+                System.out.println(e + " " + persoon.getName());
+                //System.out.println("U heeft te weinig geld: " + persoon.getName());
             }
         }
     }

@@ -110,4 +110,11 @@ public class Kantinemedewerker extends Persoon implements KortingskaartHouder
     public double geefMaximum(){
         return maxKorting;
     }
+    
+    /**
+     * @return medewerkersNummer
+     */
+    public String getName(){
+        return "Kantinemedewerker " + this.medewerkersNummer;
+    }
 }

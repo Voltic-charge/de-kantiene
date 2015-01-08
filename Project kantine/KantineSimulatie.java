@@ -135,7 +135,7 @@ public class KantineSimulatie {
                 int[] tepakken = null;
                 Persoon persoon = null;
                 if (kans >= 90 && kans <=  99){
-                    persoon = new Docent("ict", "DOC");  
+                    persoon = new Docent("ict", "DOC", nummer.toString());  
                     aantaldocenten++;
                 }
                 if (kans >= 1 && kans <= 89){
