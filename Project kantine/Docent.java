@@ -89,8 +89,15 @@ public class Docent extends Persoon implements KortingskaartHouder
     /**
      * methode om kortingspercentage op te vragen
      */
-    public double geefKortingsPercentageee(){
+    public double geefKortingsPercentage(){
         return korting;
+    }
+    
+    /**
+     * methode om op te vragen of er maximum per keer aan de korting zit
+     */
+    public boolean heeftMaximum(){
+        return true;
     }
     
     /**

@@ -62,7 +62,7 @@ public class Kassa {
             System.out.println("Te betalen na korting aftrek: " + roundTwo.format(prijs) + " euro"); 
             betalingAfhandelen(persoon, prijs, aantalArtikelen);
         }else{
-            teBetalen = prijs;
+            //teBetalen = prijs;
             betalingAfhandelen(persoon, teBetalen, aantalArtikelen);          
         }       
     }
