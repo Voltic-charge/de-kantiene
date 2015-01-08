@@ -19,12 +19,11 @@ public class Contant extends Betaalwijze
      * Methode om betaling af te handelen
      * @param tebetalen
      */
-    public boolean betaal(double tebetalen) {
+    public void betaal(double tebetalen) throws TeWeinigGeldException {
         if(tebetalen > this.saldo){
-            return false;
+            throw new TeWeinigGeldException("U heeft te weinig geld");
         }else {
             this.saldo -= tebetalen;
-            return true;
         }
     }   
 }

@@ -41,8 +41,8 @@ public class Kassa {
             aantalArtikelen++;
         }
 
-        this.totaalPrijs += teBetalen;
-        this.totaalGepasseerd += aantalArtikelen;
+        
+        //this.totaalGepasseerd += aantalArtikelen;
         this.afrekenTeller++;
 
         System.out.println(persoon.toString());
@@ -60,21 +60,26 @@ public class Kassa {
                 prijs = teBetalen - (persoon.geefKortingsPercentage() / 100) * teBetalen;
             }
             System.out.println("Te betalen na korting aftrek: " + roundTwo.format(prijs) + " euro"); 
-            betalingAfhandelen(persoon, prijs);
+            betalingAfhandelen(persoon, prijs, aantalArtikelen);
         }else{
-            betalingAfhandelen(persoon, teBetalen);          
+            teBetalen = prijs;
+            betalingAfhandelen(persoon, teBetalen, aantalArtikelen);          
         }       
     }
 
     /**
      * afhandeling betaling
      */
-    public void betalingAfhandelen(Persoon persoon,double teBetalen){
+    public void betalingAfhandelen(Persoon persoon,double teBetalen, int aantalArtikelen){
         if(persoon.getBetaalwijze() != null){
-            if (persoon.getBetaalwijze().betaal(teBetalen)){
+            try{
+                persoon.getBetaalwijze().betaal(teBetalen);
+                this.totaalPrijs += teBetalen;
+                this.totaalGepasseerd += aantalArtikelen;
                 System.out.println("Bedankt! U heeft betaald.");
-            }else{
-                System.out.println("Betaling niet voltooid, u heeft te weinig geld!");
+            }
+            catch(Exception e){
+                System.out.println(e);
             }
         }
     }
