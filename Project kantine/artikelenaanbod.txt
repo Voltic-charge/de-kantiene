@@ -1,0 +1,4 @@
+patat 2.50
+frikandel 1.00
+cola 1.00
+bier 1.50

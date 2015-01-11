@@ -13,7 +13,7 @@ public class Pinpas extends Betaalwijze {
      * Wordt alleen gebruikt als test, voor het setten van een saldo
      */
     public Pinpas(){
-        this.saldo = 5.00;
+        this.saldo = 7.50;
     }
     
     /**

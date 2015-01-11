@@ -1,5 +1,10 @@
 import java.util.*;
 import java.text.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.Scanner;
+import java.net.URISyntaxException;
 /**
  * This class simulates a few days in a cantine. 
  * 
@@ -17,12 +22,14 @@ public class KantineSimulatie {
 
     // random generator
     private Random random;
-    
+
     //afronden van getallen
     private NumberFormat roundTwo = new DecimalFormat("#.00");
+    
+    private int aantalRegels;
 
     // aantal artikelen
-    private static final int AANTAL_ARTIKELEN=4;
+    //private static final int AANTAL_ARTIKELEN=4;
     // aantal studenten
     //private static final int AANTAL_STUDENTEN=89;
     // aantal docenten
@@ -31,13 +38,13 @@ public class KantineSimulatie {
     //private static final int AANTAL_KANTINEMEDEWERKERS=1;
 
     // artikelen
-    private static final String[] artikelnamen=
-        new String[] {"Koffie","Broodje pindakaas", "Broodje kaas",
-            "Appelsap"};
+    private String[] artikelnamen;
+    //    new String[] {"Koffie","Broodje pindakaas", "Broodje kaas",
+    //        "Appelsap"};
 
     // prijzen
-    private static double[] artikelprijzen=
-        new double[]{1.50, 2.10, 1.65, 1.65};
+    private Double[] artikelprijzen;
+    // new double[]{1.50, 2.10, 1.65, 1.65};
 
     // minimum en maximum aantal artikelen per soort
     private static final int MIN_ARTIKELEN_PER_SOORT=10;
@@ -55,14 +62,86 @@ public class KantineSimulatie {
      * Constructor
      */
     public KantineSimulatie(){
-        kantine=new Kantine();
-        random=new Random();
-        kassa = kantine.getKassa();
-        int[] hoeveelheden=getRandomArray(
-                AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
-        kantineaanbod=new KantineAanbod(artikelnamen, artikelprijzen,
-            hoeveelheden);
-        kantine.setKantineAanbod(kantineaanbod);
+        boolean fileError;
+        this.aantalRegels = 0;
+        try{
+            URL file = getClass().getClassLoader().getResource("artikelenaanbod.txt");
+            if(file == null) {
+                throw new FileNotFoundException("artikelenaanbod.txt");
+            }
+
+            Scanner aanbodden = new Scanner(new File(file.toURI()));
+            //int aantalRegels = 0;
+            //List<String> regels = ArrayList;
+            //while(aanbodden.hasNext()){
+            //    this.aantalRegels++;
+            //}
+            //aanbodden.close();
+            //aanbodden.reset();
+            
+            ArrayList<String> artikelnamenList = new ArrayList<String>();
+            List<Double> artikelprijzenList = new ArrayList<Double>();
+
+            
+            Scanner aanbod = new Scanner(new File(file.toURI()));
+            int teller = 0;
+            while(aanbod.hasNextLine()){
+                String artikelInfo = aanbod.nextLine();
+                String[] deel = artikelInfo.split(" ");
+                String deel1 = deel[0];
+                artikelnamenList.add(deel1);
+                String deel2 = deel[1];
+                double d = Double.valueOf(deel2);
+                artikelprijzenList.add(d);            
+                teller++;
+            }
+            aanbod.close();
+            aanbod.reset();
+            this.aantalRegels = artikelnamenList.size();
+            artikelnamen = new String[this.aantalRegels];
+            artikelprijzen = new Double[this.aantalRegels];
+            
+            artikelnamen = artikelnamenList.toArray(artikelnamen);
+            artikelprijzen = artikelprijzenList.toArray(artikelprijzen);
+
+            kantine=new Kantine();
+            random=new Random();
+            kassa = kantine.getKassa();
+            int[] hoeveelheden=getRandomArray(
+                    this.aantalRegels, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
+            kantineaanbod=new KantineAanbod(artikelnamen, artikelprijzen,
+                hoeveelheden);
+            kantine.setKantineAanbod(kantineaanbod);
+            fileError = false;
+
+            
+        }
+        catch(URISyntaxException e) {
+            System.out.println("Error: " + e);
+            fileError = true;
+        }
+        
+        catch(FileNotFoundException e) {
+            System.out.println("Error: " + e);
+            fileError = true;
+        }
+
+        if(fileError) {
+            System.out.println("Niet gelukt om het file te lezen: artikelenaanbod.txt" );
+            System.out.println("Daarom deze standaard artikelen");
+            String[] artikelnamen = new String[] {"Koffie","Broodje pindakaas", "Broodje kaas",
+                    "Appelsap"};
+            Double[] artikelprijzen = new Double[]{1.50, 2.10, 1.65, 1.65};
+            this.aantalRegels = 4;
+            kantine=new Kantine();
+            random=new Random();
+            kassa = kantine.getKassa();
+            int[] hoeveelheden=getRandomArray(
+                    this.aantalRegels, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
+            kantineaanbod=new KantineAanbod(artikelnamen, artikelprijzen,
+                hoeveelheden);
+            kantine.setKantineAanbod(kantineaanbod);
+        }
     }
 
     /**
@@ -147,7 +226,7 @@ public class KantineSimulatie {
                     aantalkantinemedewerkers++;
                 }
                 aantalartikelen= getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON); 
-                tepakken=getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+                tepakken=getRandomArray(aantalartikelen, 0, this.aantalRegels-1);
                 artikelen=geefArtikelNamen(tepakken);
                 kantine.loopPakSluitAan(persoon, artikelen);
             }
@@ -162,9 +241,9 @@ public class KantineSimulatie {
             System.out.println("Totaal in kassa: " + roundTwo.format(kassa.hoeveelheidGeldInKassa()));
             System.out.println("Totaal aantal artikelen: " + kassa.aantalArtikelen());
             System.out.println("Aantal bezoekers: " + kassa.geefAfrekenTeller());
-            System.out.println("aantal docenten" + aantaldocenten);
-            System.out.println("aantal studenten " + aantalstudenten);
-            System.out.println("aantal kantinemedewerkers " + aantalkantinemedewerkers);
+            System.out.println("aantal docenten: " + aantaldocenten);
+            System.out.println("aantal studenten: " + aantalstudenten);
+            System.out.println("aantal kantinemedewerkers: " + aantalkantinemedewerkers);
             aantal[index] = kassa.aantalArtikelen();
             omzet[index] = kassa.hoeveelheidGeldInKassa();
             index++;

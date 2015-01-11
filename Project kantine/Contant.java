@@ -12,7 +12,7 @@ public class Contant extends Betaalwijze
      * Wordt alleen gebruikt als test, voor het setten van een saldo
      */
     public Contant(){
-        this.saldo = 5.00;
+        this.saldo = 7.50;
     }
     
     /**

@@ -10,7 +10,7 @@ public class Artikel
 {
     // instance variables - replace the example below with your own
     private String naam;
-    private double prijs;
+    private Double prijs;
 
     /**
      * Constructor for objects of class Artikel
@@ -28,7 +28,7 @@ public class Artikel
      */
     public Artikel(){
          naam = null;
-         prijs = 0;
+         prijs = 0.0;
     }
 
      /**
@@ -57,7 +57,7 @@ public class Artikel
     /**
      * Set ArtikelPrijs
      */
-    public void setArtikelPrijs(int ArtikelPrijs)
+    public void setArtikelPrijs(Double ArtikelPrijs)
     {
         prijs = ArtikelPrijs;
     }

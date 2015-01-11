@@ -11,7 +11,7 @@ public class KantineAanbod {
     private HashMap<String, ArrayList<Artikel>> aanbod;
     private String[] artikelnaam;
     private int[] hoeveelheid;
-    private double[] prijs;
+    private Double[] prijs;
     
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen,
@@ -19,7 +19,7 @@ public class KantineAanbod {
      * is een lijst met hoeveelheden. Let op: de dimensies van de drie arrays
      * moeten wel gelijk zijn!
      */
-    public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
+    public KantineAanbod(String[] artikelnaam, Double[] prijs, int[] hoeveelheid) {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
         this.artikelnaam = artikelnaam;
         this.hoeveelheid = hoeveelheid;
